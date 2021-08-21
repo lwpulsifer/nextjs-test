@@ -21,9 +21,10 @@ export default function Home() {
         </h1>
 
         <div className={styles.grid}>
-          <TopTracks/>
-          <NowPlaying />
+          
         </div>
+        <TopTracks/>
+        <NowPlaying />
       </main>
 
       <CommonFooter />

@@ -8,12 +8,14 @@ const TopTracks = () => {
   const { data } = useSWR('api/top-tracks', fetcher);
 
   return (
-    <aside className={styles.header}>
-      My Spotify Top Tracks
-      { data
-        ? data.tracks.map(track => <Track {...track} />)
-        : null
-      }
+    <aside className={styles.topTracksContainer}>
+      <span className={styles.header}>My Spotify Top Tracks</span>
+      <div className={styles.tracks}>
+        { data
+          ? data.tracks.map(track => <Track {...track} />)
+          : null
+        }
+      </div>
     </aside>
   )
 };
