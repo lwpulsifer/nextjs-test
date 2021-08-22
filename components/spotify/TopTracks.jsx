@@ -14,7 +14,7 @@ const TopTracks = () => {
       <ol className={'bg-lightblue p-5 rounded-lg list-decimal'}>
         { data
           ? data.tracks.map(track => <Track {...track} key={track.id} />)
-          : null
+          : 'Loading top tracks...'
         }
       </ol>
     </aside>
