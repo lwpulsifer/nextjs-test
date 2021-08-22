@@ -1,4 +1,4 @@
-import CommonFooter from '../../shared_components/CommonFooter';
+import CommonFooter from "../../components/CommonFooter";
 
 function Posts() {
   return (

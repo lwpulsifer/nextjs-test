@@ -28,7 +28,7 @@ const CommonHeader = () => {
   return (
     <nav className={'flex h-10 w-full items-center justify-center'}>
       <div className={'flex w-1/2 justify-end'}>
-        {links.map(({path, title}) => <CommonHeaderLink path={path} title={title} />)}
+        {links.map(({path, title}) => <CommonHeaderLink path={path} title={title} key={title} />)}
       </div>
     </nav>
   )

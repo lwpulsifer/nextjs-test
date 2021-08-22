@@ -17,15 +17,15 @@ export default function Home() {
 
       <main className={'w-9/12 flex flex-col justify-center items-center'}>
         <h1 className={'text-4xl font-medium m-4'}>
-          Hi, I'm Liam Pulsifer
+          Hi, I&apos;m Liam Pulsifer
         </h1>
         <div className={'bg-gray-100 w-2/3 rounded-xl text-center p-3 m-3'}>
-          I'm a software engineer, writer, and amateur <a className={'text-blue-600 hover:underline'} href={'https://www.strava.com/athletes/47580246'}>runner</a>. 
-          When I'm not working at my day job at <a className={'text-blue-600 hover:underline'} href={'https://www.ixl.com/'}>IXL Learning</a>,
+          I&apos;m a software engineer, writer, and amateur <a className={'text-blue-600 hover:underline'} href={'https://www.strava.com/athletes/47580246'}>runner</a>. 
+          When I&apos;m not working at my day job at <a className={'text-blue-600 hover:underline'} href={'https://www.ixl.com/'}>IXL Learning</a>,
           you can often find me reading, playing tennis, or surfing around the San Francisco bay area.
-          I'm always looking for new connections, so don't be shy about getting in 
+          I&apos;m always looking for new connections, so don&apos;t be shy about getting in 
           touch, and please feel free to peruse the various sections of this site to get 
-          a sense of who I am and what I'm doing. 
+          a sense of who I am and what I&apos;m doing. 
         </div>
       </main>
 
