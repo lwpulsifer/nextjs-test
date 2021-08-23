@@ -1,11 +1,10 @@
-import CommonFooter from "../../components/CommonFooter";
+import BasePage from "../../components/BasePage";
 
 function Posts() {
   return (
-    <main>
+    <BasePage>
       <h1>Posts</h1>
-      <CommonFooter/>
-    </main>
+    </BasePage>
   )
 }
 

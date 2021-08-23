@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import NowPlaying from './spotify/NowPlaying';
 
 const CommonHeaderLink = ({ path, title }) => (
   <div
@@ -21,14 +23,32 @@ const CommonHeader = () => {
     },
     {
       path: '/about',
-      title: 'Fun stuff',
+      title: 'About me',
+    },
+    {
+      path: '/fun',
+      title: 'Fun'
     },
   ];
 
   return (
-    <nav className={'flex h-10 w-full items-center justify-center'}>
-      <div className={'flex w-1/2 justify-end'}>
-        {links.map(({path, title}) => <CommonHeaderLink path={path} title={title} key={title} />)}
+    <nav className={'flex h-20 items-center justify-center w-full'}>
+      <div className={'flex w-1/2'}>
+        <div className={'flex w-2/3 justify-start'}>
+          <div className={'bg-gray-700 rounded-full flex'}>
+            <Image 
+              className={'rounded-full'}
+              src={'/grad_cropped.jpg'} 
+              height={30} 
+              width={60} 
+              alt={'Liam Pulsifer, professional headshot photo.'}
+              />
+            <NowPlaying additionalClassNames={['rounded-r-full', 'ml-2']} />
+          </div>
+        </div>
+        <div className={'flex w-1/3 justify-end'}>
+          {links.map(({path, title}) => <CommonHeaderLink path={path} title={title} key={title} />)}
+        </div>
       </div>
     </nav>
   )
