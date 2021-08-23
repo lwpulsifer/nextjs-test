@@ -22,7 +22,7 @@ const NowPlaying = ({ additionalClassNames = [] }) => {
 
   return (
     <div className={`flex flex-row p-3 ${additionalClassNames.join(" ")}`}>
-      <Image src={'/spotify.png'} height={20} width={40} className={'h-10 w-10'} />
+      <Image src={'/spotify.png'} height={32} width={32} className={'h-10 w-10'} />
       {nowPlayingElement}
     </div>
   )

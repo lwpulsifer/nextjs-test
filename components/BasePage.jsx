@@ -2,9 +2,9 @@ import React from 'react';
 import CommonHeader from './CommonHeader';
 import CommonFooter from './CommonFooter';
 
-const BasePage = ({ children, isHomePage }) => {
+const BasePage = ({ children, isHomePage, additionalClassNames = '' }) => {
   return (
-    <div>
+    <div className={`${additionalClassNames}`}>
       <CommonHeader />
       {children}
       <CommonFooter isHomePage={isHomePage} />
