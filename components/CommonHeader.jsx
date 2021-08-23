@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import NowPlaying from './spotify/NowPlaying';
+import RotatingComponents from './RotatingComponents';
 
 const CommonHeaderLink = ({ path, title }) => (
   <div
@@ -43,7 +44,9 @@ const CommonHeader = () => {
               width={60} 
               alt={'Liam Pulsifer, professional headshot photo.'}
               />
-            <NowPlaying additionalClassNames={['rounded-r-full', 'ml-2']} />
+            <RotatingComponents>
+              <NowPlaying additionalClassNames={['ml-2', 'text-white', 'mr-5']} />
+            </RotatingComponents>
           </div>
         </div>
         <div className={'flex w-1/3 justify-end'}>

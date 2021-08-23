@@ -10,8 +10,10 @@ const NowPlaying = ({ additionalClassNames = [] }) => {
     data?.isPlaying 
       ? (
         <>
-          <span className={'italic flex justify-center items-center ml-3 overflow-hidden truncate whitespace-no-wrap'}>
-            {`${data.title} by ${data.artist}`}
+          <span className={'flex justify-center items-center ml-3 overflow-hidden truncate whitespace-no-wrap'}>
+            <span className={'font-bold'}>{data.title}</span>
+            <span className={'mx-2'}>{'—'}</span>
+            <span className={'italic'}>{data.artist}</span>
           </span>
         </>
       )
@@ -19,7 +21,7 @@ const NowPlaying = ({ additionalClassNames = [] }) => {
   );
 
   return (
-    <div className={`flex flex-row p-3 rounded-lg bg-green-800 text-white ${additionalClassNames.join(" ")}`}>
+    <div className={`flex flex-row p-3 ${additionalClassNames.join(" ")}`}>
       <Image src={'/spotify.png'} height={20} width={40} className={'h-10 w-10'} />
       {nowPlayingElement}
     </div>
