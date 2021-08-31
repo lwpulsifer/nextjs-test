@@ -15,7 +15,7 @@ export default function Home() {
         </Head>
 
         <main className={'w-9/12 flex flex-col justify-center items-center'}>
-          <h1 className={'text-4xl font-medium m-4 text-blue-900'}>
+          <h1 className={'text-4xl font-medium m-4 text-blue-900 text-center'}>
             Hi, I&apos;m Liam Pulsifer
           </h1>
           <div className={'bg-gray-100 w-2/3 rounded-xl text-center p-3 m-3'}>

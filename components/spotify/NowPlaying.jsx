@@ -17,7 +17,7 @@ const NowPlaying = ({ additionalClassNames = [] }) => {
           </span>
         </>
       )
-      : <span className={'m-2'}>Nothing playing at the moment</span>
+      : <span className={'m-2 overflow-hidden truncate whitespace-no-wrap'}>Nothing playing at the moment</span>
   );
 
   return (
