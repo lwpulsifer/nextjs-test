@@ -3,7 +3,7 @@ import useSWR from 'swr';
 import fetcher from '../../lib/fetch/fetcher';
 import Image from 'next/image';
 
-const NowPlaying = ({ additionalClassNames = [] }) => {
+const NowPlaying = ({ additionalClassNames = [], includeImage = true }) => {
   const { data } = useSWR('api/now-playing', fetcher);
 
   const nowPlayingElement = (
@@ -17,12 +17,12 @@ const NowPlaying = ({ additionalClassNames = [] }) => {
           </span>
         </>
       )
-      : <span className={'m-2 overflow-hidden truncate whitespace-no-wrap'}>Nothing playing at the moment</span>
+      : <span className={'m-2'}>Nothing playing at the moment</span>
   );
 
   return (
-    <div className={`flex flex-row p-3 ${additionalClassNames.join(" ")}`}>
-      <Image src={'/spotify.png'} height={32} width={32} className={'h-10 w-10'} />
+    <div className={`flex flex-row p-3 items-center ${additionalClassNames.join(" ")}`}>
+      {includeImage && <Image src={'/spotify.png'} height={32} width={32} layout={'fixed'} className={'h-10 w-10'} />}
       {nowPlayingElement}
     </div>
   )

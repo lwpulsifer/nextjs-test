@@ -18,7 +18,7 @@ export default function Home() {
           <h1 className={'text-4xl font-medium m-4 text-blue-900 text-center'}>
             Hi, I&apos;m Liam Pulsifer
           </h1>
-          <div className={'bg-gray-100 w-2/3 rounded-xl text-center p-3 m-3'}>
+          <div className={'bg-gray-100 w-full md:w-2/3 rounded-xl text-center p-3 m-3'}>
             I&apos;m a software engineer, writer, and amateur <a className={'text-blue-600 hover:underline'} href={'https://www.strava.com/athletes/47580246'}>runner</a>. 
             When I&apos;m not working at my day job at <a className={'text-blue-600 hover:underline'} href={'https://www.ixl.com/'}>IXL Learning</a>,
             you can often find me reading, playing tennis, or surfing around the San Francisco bay area.
