@@ -63,7 +63,7 @@ export default function ParticlesBackground() {
       <Particles
           id="tsparticles"
           init={null}
-          loaded={() => console.log("Tsparticles loaded")}
+          loaded={null}
           options={particlesConfig}
         />
     </div>

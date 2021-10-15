@@ -6,8 +6,8 @@ import ParticlesBackground from './ParticlesBackground';
 
 const BasePage = ({ children, isHomePage, additionalClassNames = '' }) => {
   return (
-    <div className={`${additionalClassNames} bg-gray-100 h-full w-full justify-center items-center`}>
-      <ParticlesBackground />
+    <div className={`${additionalClassNames} bg-kusama h-full w-full justify-center items-center`}>
+      <ParticlesBackground particlesLoadedCallback={() => setParticlesLoaded(true)} />
       <div className="absolute h-full w-full">
         <CommonHeader />
         {children}
