@@ -4,7 +4,7 @@ import CommonDivider from './CommonDivider';
 function CommonFooter({ isHomePage }) {
   return (
     <footer className={'flex flex-col items-center mt-3'}>
-      <CommonDivider color={'blue-400'}/>
+      {/* <CommonDivider color={'gray-800'}/> */}
       <AboutLinks />
     </footer>
   )

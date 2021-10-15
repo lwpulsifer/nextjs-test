@@ -19,7 +19,7 @@ export default function AboutLinks() {
   ];
   
   return (
-    <aside className={'flex w-1/2 grid grid-cols-1 sm:grid-cols-2 max-w-md gap-y-5 p-3'}>
+    <aside className={'w-1/2 grid grid-cols-1 sm:grid-cols-2 max-w-md gap-y-5 p-3'}>
       {links.map(link => <AboutLink key={link.title} {...link} />)}
     </aside>
   )
