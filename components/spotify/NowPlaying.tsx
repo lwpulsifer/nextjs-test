@@ -3,9 +3,14 @@ import useSWR from 'swr';
 import fetcher from '../../lib/fetch/fetcher';
 import Image from 'next/image';
 
-const NowPlaying = ({ additionalClassNames = [], includeImage = true }) => {
-  const { data } = useSWR('api/now-playing', fetcher);
+type nowPlayingProps = {
+  additionalClassNames: string,
+  includeImage: boolean,
+};
 
+const NowPlaying = ({ additionalClassNames = '', includeImage = true } : nowPlayingProps) => {
+  const { data } = useSWR('api/now-playing', fetcher);
+  
   const nowPlayingElement = (
     data?.isPlaying 
       ? (
@@ -21,7 +26,7 @@ const NowPlaying = ({ additionalClassNames = [], includeImage = true }) => {
   );
 
   return (
-    <div className={`flex flex-row p-3 items-center ${additionalClassNames.join(" ")}`}>
+    <div className={`flex flex-row p-3 items-center ${additionalClassNames}`}>
       {includeImage && <Image src={'/spotify.png'} height={32} width={32} layout={'fixed'} className={'h-10 w-10'} />}
       {nowPlayingElement}
     </div>
