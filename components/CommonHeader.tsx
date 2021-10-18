@@ -4,7 +4,12 @@ import Image from 'next/image';
 import NowPlaying from './spotify/NowPlaying';
 import RotatingComponents from './RotatingComponents';
 
-const CommonHeaderLink = ({ path, title }) => (
+type commonHeaderLinkProps = {
+  path: string,
+  title: React.ReactElement,
+};
+
+const CommonHeaderLink = ({ path, title } : commonHeaderLinkProps) => (
   <div
     className={'m-2 lg:m-3 2xl:m-5 text-gray-900 font-bold'}
   >
