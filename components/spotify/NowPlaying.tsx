@@ -10,7 +10,7 @@ type nowPlayingProps = {
 
 const NowPlaying = ({ additionalClassNames = '', includeImage = true } : nowPlayingProps) => {
   const { data } = useSWR('api/now-playing', fetcher);
-  
+
   const nowPlayingElement = (
     data?.isPlaying 
       ? (
