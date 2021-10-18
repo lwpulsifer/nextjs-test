@@ -65,6 +65,7 @@ const ParticlesBackground = () => {
           init={null}
           loaded={null}
           options={particlesConfig}
+          className={'w-full h-full'}
         />
     </div>
   );
