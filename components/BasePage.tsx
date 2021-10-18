@@ -4,10 +4,18 @@ import CommonFooter from './CommonFooter';
 import Particles from 'react-tsparticles';
 import ParticlesBackground from './ParticlesBackground';
 
-const BasePage = ({ children, isHomePage, additionalClassNames = '' }) => {
+type basePageProps = {
+  children: React.ReactNode,
+  isHomePage: boolean,
+  additionalClassNames: string,
+};
+
+const BasePage = (
+  { children, isHomePage, additionalClassNames = '' } : basePageProps,
+) => {
   return (
     <div className={`${additionalClassNames} bg-kusama h-full w-full justify-center items-center`}>
-      <ParticlesBackground particlesLoadedCallback={() => setParticlesLoaded(true)} />
+      <ParticlesBackground />
       <div className="absolute h-full w-full">
         <CommonHeader />
         {children}
