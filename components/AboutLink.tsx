@@ -13,3 +13,5 @@ const AboutLink = ({ title, address, additionalClassNames = ''} : aboutLinkProps
     </div>
   )
 };
+
+export default AboutLink;
