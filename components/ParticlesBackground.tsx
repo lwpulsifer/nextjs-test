@@ -1,7 +1,7 @@
 import React from 'react';
-import Particles from 'react-tsparticles';
+import Particles, { RecursivePartial, IOptions } from 'react-tsparticles';
 
-const particlesConfig = {
+const particlesConfig: RecursivePartial<IOptions> = {
   background: {
     color: {
       value: "#FFB700",
@@ -57,7 +57,7 @@ const particlesConfig = {
   detectRetina: true,
 };
 
-export default function ParticlesBackground() {
+const ParticlesBackground = () => {
   return (
     <div className={'absolute h-full w-full'}>
       <Particles
@@ -69,3 +69,5 @@ export default function ParticlesBackground() {
     </div>
   );
 }
+
+export default ParticlesBackground;

@@ -3,7 +3,7 @@ import Link from 'next/link';
 type aboutLinkProps = {
   title: string,
   address: string,
-  additionalClassNames: string,
+  additionalClassNames?: string,
 };
 
 const AboutLink = ({ title, address, additionalClassNames = ''} : aboutLinkProps) => {

@@ -1,7 +1,6 @@
-import Link from 'next/link';
 import AboutLink from './AboutLink';
 
-export default function AboutLinks() {
+const AboutLinks= () => {
   
   const links = [
     {
@@ -23,4 +22,6 @@ export default function AboutLinks() {
       {links.map(link => <AboutLink key={link.title} {...link} />)}
     </aside>
   )
-}
+};
+
+export default AboutLinks;

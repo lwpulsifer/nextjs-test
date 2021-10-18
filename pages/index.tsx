@@ -3,7 +3,7 @@ import Image from 'next/image'
 import React from 'react';
 import BasePage from '../components/BasePage';
 
-export default function Home() {
+const Home = () => {
   return (
     <BasePage>
       <div className={'flex flex-col items-center justify-center w-full'}>
@@ -31,3 +31,5 @@ export default function Home() {
     </BasePage>
   )
 }
+
+export default Home;

@@ -1,10 +1,15 @@
 import { useState, useEffect } from 'react';
 import CommonDivider from '../CommonDivider';
+import { timelineEvent } from './Timeline';
 
 const colors = ['blue', 'red', 'green'];
 const randomChoice = (arr) => arr[Math.floor(arr.length * Math.random())];
 
-export default function TimelineCard({ beginning, end, title, description, includeTrailingLine }) {
+type timelineCardProps = timelineEvent & {
+  includeTrailingLine?: boolean,
+};
+
+const TimelineCard: React.FC<timelineCardProps> = ({ beginning, end, title, description, includeTrailingLine = false }) => {
   const [cardColor, setCardColor] = useState('blue');
   
   useEffect(() => {
@@ -27,3 +32,5 @@ export default function TimelineCard({ beginning, end, title, description, inclu
     </li>
   );
 }
+
+export default TimelineCard;

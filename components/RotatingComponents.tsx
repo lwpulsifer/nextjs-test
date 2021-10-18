@@ -3,8 +3,16 @@ import { useState, useCallback } from 'react';
 
 const ROTATION_INTERVAL_MS = 2000;
 
-export default function RotatingComponents({ children, additionalClassNames = '' }) {
-  const nonNullChildren = children.filter(child => child !== null);
+type rotatingComponentsProps = {
+  additionalClassNames: string,
+  children: React.ReactNode,
+}
+
+const RotatingComponents: React.FC<rotatingComponentsProps> = ({ 
+  children, 
+  additionalClassNames = '' 
+}) => {
+  const nonNullChildren: React.ReactNode[] = Array.isArray(children) ? children.filter(child => child !== null) : [children];
 
   const [currentChild, setCurrentChild] = useState(0);
   const [rotating, setRotating] = useState(true);
@@ -20,3 +28,5 @@ export default function RotatingComponents({ children, additionalClassNames = ''
     </div>
   );
 }
+
+export default RotatingComponents;

@@ -1,17 +1,16 @@
 import React from 'react';
 import CommonHeader from './CommonHeader';
 import CommonFooter from './CommonFooter';
-import Particles from 'react-tsparticles';
 import ParticlesBackground from './ParticlesBackground';
 
 type basePageProps = {
-  children: React.ReactNode,
-  isHomePage: boolean,
-  additionalClassNames: string,
+  children?: React.ReactNode,
+  isHomePage?: boolean,
+  additionalClassNames?: string,
 };
 
 const BasePage = (
-  { children, isHomePage, additionalClassNames = '' } : basePageProps,
+  { children = [], isHomePage = false, additionalClassNames = '' } : basePageProps,
 ) => {
   return (
     <div className={`${additionalClassNames} bg-kusama h-full w-full justify-center items-center`}>

@@ -1,8 +1,15 @@
 import TimelineCard from "./TimelineCard";
 import YearCard from './YearCard';
 
+export interface timelineEvent {
+  beginning: Date,
+  end?: Date,
+  title: string,
+  description: React.ReactNode,
+}
+
 export default function Timeline() {
-  const events = [
+  const events: timelineEvent[] = [
     {
       beginning: new Date('August 18, 2020'),
       end: null,
