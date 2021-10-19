@@ -4,8 +4,8 @@ import fetcher from '../../lib/fetch/fetcher';
 import Image from 'next/image';
 
 type nowPlayingProps = {
-  additionalClassNames: string,
-  includeImage: boolean,
+  additionalClassNames?: string,
+  includeImage?: boolean,
 };
 
 const NowPlaying = ({ additionalClassNames = '', includeImage = true } : nowPlayingProps) => {
@@ -27,7 +27,7 @@ const NowPlaying = ({ additionalClassNames = '', includeImage = true } : nowPlay
 
   return (
     <div className={`flex flex-row p-3 items-center ${additionalClassNames}`}>
-      {includeImage && <Image src={'/spotify.png'} height={32} width={32} layout={'fixed'} className={'h-10 w-10'} />}
+      {includeImage && <Image src={'/spotify.png'} height={32} width={32} layout={'fixed'} className={'h-10 w-10'} alt={'Spotify logo'} />}
       {nowPlayingElement}
     </div>
   )

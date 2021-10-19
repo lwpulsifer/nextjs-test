@@ -41,7 +41,7 @@ const CommonHeader = () => {
     <nav className={'flex items-center justify-center w-full m-3 h-20'}>
       <div className={'flex flex-col lg:flex-row w:full lg:w-1/2 h-20'}>
         <div className={'flex w-full lg:w-2/3 justify-center items-center lg:justify-start'}>
-          <NowPlaying additionalClassNames={['ml-2', 'text-md', 'border', 'border-black', 'rounded-full', 'font-bold', 'bg-kusama']} />
+          <NowPlaying additionalClassNames={'ml-2 text-md border border-black rounded-full font-bold bg-kusama'} />
         </div>
         {/* <div className={'flex w-full lg:w-1/3 justify-center items-center lg:justify-end'}>
           {links.map(({path, title}) => <CommonHeaderLink path={path} title={title} key={title} />)}
