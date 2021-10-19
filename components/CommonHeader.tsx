@@ -3,23 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import NowPlaying from './spotify/NowPlaying';
 import RotatingComponents from './RotatingComponents';
-
-type commonHeaderLinkProps = {
-  path: string,
-  title: React.ReactElement,
-};
-
-const CommonHeaderLink = ({ path, title } : commonHeaderLinkProps) => (
-  <div
-    className={'m-2 lg:m-3 2xl:m-5 text-header font-bold'}
-  >
-    <Link
-      href={path}
-    >
-      {title}
-    </Link>
-  </div>
-);
+import AboutLink from './AboutLink';
 
 const CommonHeader = () => {
   const links = [
@@ -31,10 +15,10 @@ const CommonHeader = () => {
       path: '/about',
       title: 'About me',
     },
-    {
-      path: '/fun',
-      title: 'Fun'
-    },
+    // {
+    //   path: '/fun',
+    //   title: 'Fun'
+    // },
   ];
 
   return (
@@ -43,9 +27,9 @@ const CommonHeader = () => {
         <div className={'flex w-full lg:w-2/3 justify-center items-center lg:justify-start'}>
           <NowPlaying additionalClassNames={'ml-2 text-md border border-black rounded-full font-bold bg-background'} />
         </div>
-        {/* <div className={'flex w-full lg:w-1/3 justify-center items-center lg:justify-end'}>
-          {links.map(({path, title}) => <CommonHeaderLink path={path} title={title} key={title} />)}
-        </div> */}
+        <div className={'flex w-full lg:w-1/3 items-center lg:justify-end'}>
+          {links.map(({path, title}) => <AboutLink address={path} title={title} key={title} additionalClassNames={'m-2'} />)}
+        </div>
       </div>
     </nav>
   )

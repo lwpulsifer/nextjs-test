@@ -9,7 +9,7 @@ type aboutLinkProps = BaseComponentProps & {
 
 const AboutLink = ({ title, address, additionalClassNames = ''} : aboutLinkProps) => {
   return (
-    <div className={`${joinClasses(additionalClassNames)} text-header font-bold flex justify-center items-center text-center`}>
+    <div className={`${joinClasses(additionalClassNames)} text-header font-bold flex justify-center items-center text-center hover:text-highlight`}>
       <Link href={address}>{title}</Link>
     </div>
   )

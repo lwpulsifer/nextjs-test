@@ -14,9 +14,9 @@ const BasePage = (
   { children = [], isHomePage = false, additionalClassNames = '' } : BasePageProps,
 ) => {
   return (
-    <div className={`${joinClasses(additionalClassNames)} bg-background h-screen w-screen justify-between items-center`}>
+    <div className={`${joinClasses(additionalClassNames)} bg-background justify-between items-center relative min-h-screen`}>
       <ParticlesBackground />
-      <div className="absolute h-full w-full mb-auto">
+      <div className="h-full w-full relative p-6">
         <CommonHeader />
         {children}
         <CommonFooter isHomePage={isHomePage} />
