@@ -28,7 +28,7 @@ const CommonHeader = () => {
           <NowPlaying additionalClassNames={'ml-2 text-md border border-black rounded-full font-bold bg-background'} />
         </div>
         <div className={'flex w-full lg:w-1/3 items-center lg:justify-end'}>
-          {links.map(({path, title}) => <MyLink address={path} title={title} key={title} additionalClassNames={'m-2'} />)}
+          {links.map(({path, title}) => <MyLink address={path} title={title} key={title} header={true} additionalClassNames={'m-2'} />)}
         </div>
       </div>
     </nav>
