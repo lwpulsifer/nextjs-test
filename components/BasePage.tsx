@@ -3,18 +3,18 @@ import CommonHeader from './CommonHeader';
 import CommonFooter from './CommonFooter';
 import ParticlesBackground from './ParticlesBackground';
 import ThemeInfo from './ThemeInfo';
+import { joinClasses } from '../util/ClassNames';
+import { BaseComponentProps } from '../types/BaseComponent';
 
-type basePageProps = {
-  children?: React.ReactNode,
+type BasePageProps = BaseComponentProps & {
   isHomePage?: boolean,
-  additionalClassNames?: string,
 };
 
 const BasePage = (
-  { children = [], isHomePage = false, additionalClassNames = '' } : basePageProps,
+  { children = [], isHomePage = false, additionalClassNames = '' } : BasePageProps,
 ) => {
   return (
-    <div className={`${additionalClassNames} bg-background h-screen w-screen justify-between items-center`}>
+    <div className={`${joinClasses(additionalClassNames)} bg-background h-screen w-screen justify-between items-center`}>
       <ParticlesBackground />
       <div className="absolute h-full w-full mb-auto">
         <CommonHeader />

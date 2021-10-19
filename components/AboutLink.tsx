@@ -1,14 +1,15 @@
 import Link from 'next/link';
+import { BaseComponentProps } from '../types/BaseComponent';
+import { joinClasses } from '../util/ClassNames';
 
-type aboutLinkProps = {
+type aboutLinkProps = BaseComponentProps & {
   title: string,
   address: string,
-  additionalClassNames?: string,
 };
 
 const AboutLink = ({ title, address, additionalClassNames = ''} : aboutLinkProps) => {
   return (
-    <div className={`text-header font-bold flex justify-center items-center text-center ${additionalClassNames}`}>
+    <div className={`${joinClasses(additionalClassNames)} text-header font-bold flex justify-center items-center text-center`}>
       <Link href={address}>{title}</Link>
     </div>
   )

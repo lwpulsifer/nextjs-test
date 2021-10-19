@@ -1,14 +1,13 @@
 import { useInterval } from '../hooks/useInterval';
 import { useState, useCallback } from 'react';
+import { BaseComponentProps } from '../types/BaseComponent';
+import { joinClasses } from '../util/ClassNames';
 
 const ROTATION_INTERVAL_MS = 2000;
 
-type rotatingComponentsProps = {
-  additionalClassNames: string,
-  children: React.ReactNode,
-}
+type RotatingComponentsProps = BaseComponentProps;
 
-const RotatingComponents: React.FC<rotatingComponentsProps> = ({ 
+const RotatingComponents: React.FC<RotatingComponentsProps> = ({ 
   children, 
   additionalClassNames = '' 
 }) => {
@@ -23,7 +22,7 @@ const RotatingComponents: React.FC<rotatingComponentsProps> = ({
   );
 
   return (
-    <div className={`flex justify-center items-center cursor-pointer ${additionalClassNames}`} onClick={() => setRotating(rotating => !rotating)}>
+    <div className={`${joinClasses(additionalClassNames)}flex justify-center items-center cursor-pointer`} onClick={() => setRotating(rotating => !rotating)}>
       {nonNullChildren[currentChild]}
     </div>
   );
