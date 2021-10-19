@@ -15,6 +15,7 @@ const events: TimelineEvent[] = [
     beginning: new Date('August 18, 2020'),
     title: 'Moved to San Francisco',
     description: '',
+    location: 'San Francisco, CA',
   },
   {
     beginning: new Date('July 7, 2020'),
@@ -34,11 +35,12 @@ const events: TimelineEvent[] = [
   },
   {
     beginning: new Date('September 1, 2019'),
+    end: new Date('December 1, 2020'),
     title: 'Real Python video tutorial creator',
     description: (
-      <div>I create video tutorials on the Python programming language for <MyLink address={'realpython.com'} title={'realpython.com'} />. My videos have been watched by thousands of Python learners 
+      <div>I create video tutorials on the Python programming language for <MyLink address={'https://www.realpython.com'} title={'realpython.com'} />. My videos have been watched by thousands of Python learners 
       and receive consistently glowing reviews 
-      (watch <MyLink address={'realpython.com/team/lwpulsifer'} title={'here'} />).
+      (watch <MyLink address={'https://www.realpython.com/team/lwpulsifer'} title={'here'} />).
       </div>
     ),
   },
@@ -47,6 +49,7 @@ const events: TimelineEvent[] = [
     title: 'Spent the summer in Berlin',
     description: `I had an amazing time exploring Berlin, and also got a chance to 
       visit London, Rotterdam, Madrid, Salamanca, and Stockholm`,
+    location: 'Europe writ large',
   },
   {
     beginning: new Date('January 7, 2018'),
@@ -59,7 +62,8 @@ const events: TimelineEvent[] = [
   {
     beginning: new Date('August 18, 2016'),
     title: 'Started at Duke University',
-    description: ``
+    description: ``,
+    location: 'Durham, NC',
   },
   {
     beginning: new Date('September 4, 1997'),

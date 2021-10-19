@@ -14,6 +14,10 @@ const AboutLinks= () => {
     {
       title: 'Real Python video tutorials',
       address: 'https://realpython.com/team/lwpulsifer/',
+    },
+    {
+      title: 'Resume',
+      address: 'https://www.notion.so/Liam-Pulsifer-fb7f675c5e5e4403aa705a42f931a82b',
     }
   ];
   

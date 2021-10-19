@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import NowPlaying from './spotify/NowPlaying';
 import RotatingComponents from './RotatingComponents';
-import AboutLink from './AboutLink';
+import MyLink from './MyLink';
 
 const CommonHeader = () => {
   const links = [
@@ -28,7 +28,7 @@ const CommonHeader = () => {
           <NowPlaying additionalClassNames={'ml-2 text-md border border-black rounded-full font-bold bg-background'} />
         </div>
         <div className={'flex w-full lg:w-1/3 items-center lg:justify-end'}>
-          {links.map(({path, title}) => <AboutLink address={path} title={title} key={title} additionalClassNames={'m-2'} />)}
+          {links.map(({path, title}) => <MyLink address={path} title={title} key={title} additionalClassNames={'m-2'} />)}
         </div>
       </div>
     </nav>
