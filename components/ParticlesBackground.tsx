@@ -48,7 +48,7 @@ const particlesConfig: RecursivePartial<IOptions> = {
     move: {
       direction: "none",
       enable: true,
-      outMode: "destroy",
+      outMode: "out",
       random: false,
       speed: .5,
       straight: false,
