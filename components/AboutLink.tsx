@@ -8,7 +8,7 @@ type aboutLinkProps = {
 
 const AboutLink = ({ title, address, additionalClassNames = ''} : aboutLinkProps) => {
   return (
-    <div className={`text-gray-900 font-bold flex justify-center items-center text-center ${additionalClassNames}`}>
+    <div className={`text-header font-bold flex justify-center items-center text-center ${additionalClassNames}`}>
       <Link href={address}>{title}</Link>
     </div>
   )

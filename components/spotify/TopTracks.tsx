@@ -8,10 +8,10 @@ const TopTracks = () => {
 
   return (
     <aside className={'flex flex-col p-2 rounded-3xl w-1/2 bg-green-300'}>
-      <span className={'flex items-center justify-center text-2xl font-bold text-gray-900 m-2'}>
+      <span className={'flex items-center justify-center text-2xl font-bold text-header m-2'}>
         My Spotify Top Tracks
       </span>
-      <ol className={'bg-lightblue p-5 rounded-lg list-decimal'}>
+      <ol className={'bg-sky p-5 rounded-lg list-decimal'}>
         { data
           ? data.tracks.map(track => <Track {...track} key={track.id} />)
           : 'Loading top tracks...'

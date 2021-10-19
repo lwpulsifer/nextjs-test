@@ -9,7 +9,7 @@ type trackProps = {
 
 const Track: React.FC<trackProps> = ({ artist, album, songUrl, title }) => {
   return (
-    <li className={'flex border-2 m-2 p-2 rounded border-gray-700'}>
+    <li className={'flex border-2 m-2 p-2 rounded border-link'}>
       <div className={'flex flex-col w-full sm:w-3/4'}>
         <div className={'font-bold'}>
           <a 
