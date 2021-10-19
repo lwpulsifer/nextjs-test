@@ -12,7 +12,24 @@ const particlesConfig: RecursivePartial<IOptions> = {
     detectsOn: "window",
     events: {
       resize: true,
+      onClick: {
+        enable: true,
+        mode: "push",
+      },
+      onHover: {
+        enable: true,
+        mode: 'repulse',
+      }
     },
+    modes: {
+      push: {
+        quantity: 10,
+      },
+      repulse: {
+        distance: 50,
+        duration: 1,
+      },
+    }
   },
   particles: {
     color: {
@@ -31,10 +48,11 @@ const particlesConfig: RecursivePartial<IOptions> = {
     move: {
       direction: "none",
       enable: true,
-      // outMode: "bounce",
+      outMode: "destroy",
       random: false,
       speed: .5,
       straight: false,
+      warp: true,
     },
     number: {
       density: {
