@@ -16,7 +16,7 @@ module.exports = {
       background: '#FFB700',
       header: colors.gray[900],
       link: colors.gray[700],
-      
+      highlight: '#f5f9ff',
     }
   },
   variants: {

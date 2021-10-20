@@ -1,5 +1,7 @@
 import React from 'react';
 import Particles, { RecursivePartial, IOptions } from 'react-tsparticles';
+import { BaseComponentProps } from '../types/BaseComponent';
+import { joinClasses } from '../util/ClassNames';
 
 const particlesConfig: RecursivePartial<IOptions> = {
   background: {
@@ -61,9 +63,11 @@ const particlesConfig: RecursivePartial<IOptions> = {
   detectRetina: true,
 };
 
-const ParticlesBackground = () => {
+type ParticlesBackgroundProps = BaseComponentProps;
+
+const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({ additionalClassNames = '' }) => {
   return (
-    <div className={'absolute h-full w-full'}>
+    <div className={`${joinClasses(additionalClassNames)} absolute h-full w-full`}>
       <Particles
           id="tsparticles"
           init={null}
