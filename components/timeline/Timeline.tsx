@@ -86,7 +86,7 @@ export default function Timeline() {
   events.forEach((event, i) => {
     if (event.beginning.getFullYear() !== currentYear) {
       currentYear = event.beginning.getFullYear();
-      timelineEvents[currentYear] = [<YearCard year={currentYear} />];
+      timelineEvents[currentYear] = [<YearCard year={currentYear} key={currentYear} />];
     }
 
     const lastOfYear = events[i + 1]?.beginning.getFullYear() !== currentYear;

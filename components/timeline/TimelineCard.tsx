@@ -17,12 +17,12 @@ const TimelineCard: React.FC<timelineCardProps> = ({ beginning, end, title, desc
         <RotatingComponents additionalClassNames={yearBlockClassName} autoMove={false}>
           <div className="flex items-center" >
             {`${beginning.toLocaleDateString()}`}
-            {end ? <Image src={'/right-arrow.png'} width={20} height={20} /> : null}
+            {end ? <Image src={'/right-arrow.png'} width={20} height={20} alt={'Right arrow'} /> : null}
           </div>
           {end 
             ? (
               <div className="flex items-center" >
-                <Image src={'/left-arrow.png'} width={20} height={20}  />
+                <Image src={'/left-arrow.png'} width={20} height={20} alt={'Left arrow'} />
                 {`${end?.toLocaleDateString()}`}
               </div>
             )
