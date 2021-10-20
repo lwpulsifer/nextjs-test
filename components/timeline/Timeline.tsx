@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import TimelineCard from "./TimelineCard";
 import YearCard from './YearCard';
 import MyLink from "../MyLink";
+import { sorted } from '../../util/ArrayUtils';
 
 export interface TimelineEvent {
   beginning: Date,
@@ -73,22 +75,22 @@ const events: TimelineEvent[] = [
   },
 ];
 
+const NUM_YEARS_TO_SHOW_INCREMENT = 1;
+
 export default function Timeline() {
 
   events.sort((e1, e2) => e2.beginning.getTime() - e1.beginning.getTime());
 
-  const timelineEvents = [];
-  let currentYear = new Date().getFullYear();
+  let currentYear = null;
+  const timelineEvents = {};
   events.forEach((event, i) => {
     if (event.beginning.getFullYear() !== currentYear) {
-      timelineEvents.push(
-        <YearCard year={event.beginning.getFullYear()} key={event.beginning.getTime()}/>
-      );
       currentYear = event.beginning.getFullYear();
+      timelineEvents[currentYear] = [<YearCard year={currentYear} />];
     }
 
     const lastOfYear = events[i + 1]?.beginning.getFullYear() !== currentYear;
-    timelineEvents.push(
+    timelineEvents[currentYear].push(
       <TimelineCard 
         {...event} 
         includeTrailingLine={!lastOfYear} 
@@ -97,9 +99,35 @@ export default function Timeline() {
     );
   });
 
+  const [numYearsToShow, setNumYearsToShow] = useState(NUM_YEARS_TO_SHOW_INCREMENT);
+
+  const sortedYears = sorted(Object.keys(timelineEvents), (a, b) => b.localeCompare(a)).slice(0, numYearsToShow);
+  const displayEvents = sortedYears
+    .map(year => timelineEvents[year])
+    .flat();
+
+  const sharedButtonStyles = "border rounded-full border-link text-link py-1 px-2";
+
   return (
-    <ol className={'flex flex-col p-3 items-center justify-center w-1/2 bg-background rounded-2xl'}>
-      {timelineEvents}
-    </ol>
+    <section className={'flex flex-col p-3 items-center justify-center bg-background rounded-2xl w-1/2'}>
+      <h1 className="text-xl text-header font-bold" >Personal timeline</h1>
+      <ol className={'flex flex-col p-3 items-center justify-center '}>
+        {displayEvents}
+      </ol>
+      {numYearsToShow < Object.keys(timelineEvents).length
+        ? <button 
+            onClick={() => setNumYearsToShow(numYears => numYears + NUM_YEARS_TO_SHOW_INCREMENT)}
+            className={`${sharedButtonStyles}`}
+          >
+            More
+          </button>
+        : <button 
+            onClick={() => setNumYearsToShow(NUM_YEARS_TO_SHOW_INCREMENT)}
+            className={`${sharedButtonStyles}`}
+          >
+            Collapse
+          </button>
+      }
+    </section>
   );
 }

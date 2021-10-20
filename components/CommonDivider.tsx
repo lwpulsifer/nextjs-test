@@ -5,7 +5,7 @@ type commonDividerProps = BaseComponentProps;
 
 const CommonDivider = ({ additionalClassNames = 'bg-link'} : commonDividerProps) => {
   return (
-    <div className={`${joinClasses(additionalClassNames)} h-0.5 w-1/2 sm:w-1/3 rounded-full`} />
+    <div className={`${joinClasses(additionalClassNames)} h-0.5 w-full rounded-full bg-opacity-30`} />
   )
 }
 
