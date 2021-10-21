@@ -35,7 +35,7 @@ const TopTracks = () => {
     ?.[0];
 
   return (
-    <aside className={'flex flex-col p-2 rounded-3xl w-1/2 bg-background'}>
+    <aside className={'flex flex-col p-2 rounded-3xl w-5/6 lg:w-2/3 xl:w-1/2 bg-background'}>
       <span className={'flex items-center justify-center text-2xl font-bold text-header m-2'}>
         My Spotify Top Tracks
       </span>
@@ -48,7 +48,7 @@ const TopTracks = () => {
       {artistWithMoreThanHalf
         ? <div className="text-header text-md text-center" >
             Yeah, I know it&apos;s embarrassing to have more than half of my top ten 
-            be from <span className="italic">{artistWithMoreThanHalf}</span> :p
+            be from <span className="italic">{artistWithMoreThanHalf}</span> 🙃
           </div>
         : null
       }

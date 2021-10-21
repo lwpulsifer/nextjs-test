@@ -109,7 +109,7 @@ export default function Timeline() {
   const sharedButtonStyles = "border rounded-full border-link text-link py-1 px-2";
 
   return (
-    <section className={'flex flex-col p-3 items-center justify-center bg-background rounded-2xl w-1/2'}>
+    <section className={'flex flex-col p-3 items-center justify-center bg-background rounded-2xl w-5/6 lg:w-2/3 xl:w-1/2'}>
       <h1 className="text-xl text-header font-bold" >Personal timeline</h1>
       <ol className={'flex flex-col p-3 items-center justify-center '}>
         {displayEvents}
