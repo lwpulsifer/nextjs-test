@@ -47,7 +47,7 @@ const TopTracks = () => {
       </ol>
       {artistWithMoreThanHalf
         ? <div className="text-header text-md text-center" >
-            Yeah, I know it's embarrassing to have more than half of my top ten 
+            Yeah, I know it&apos;s embarrassing to have more than half of my top ten 
             be from <span className="italic">{artistWithMoreThanHalf}</span> :p
           </div>
         : null
