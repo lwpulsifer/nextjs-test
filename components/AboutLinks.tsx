@@ -1,4 +1,4 @@
-import MyLink from './MyLink';
+import MyLink from "./util/MyLink";
 
 const AboutLinks= () => {
   

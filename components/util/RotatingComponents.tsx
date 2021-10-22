@@ -1,7 +1,7 @@
-import { useInterval } from '../hooks/useInterval';
+import { useInterval } from '../../hooks/useInterval';
 import { useState, useCallback } from 'react';
-import { BaseComponentProps } from '../types/BaseComponent';
-import { joinClasses } from '../util/ClassNames';
+import { BaseComponentProps } from '../../types/BaseComponent';
+import { joinClasses } from '../../util/ClassNames';
 
 const ROTATION_INTERVAL_DEFAULT_MS = 2000;
 

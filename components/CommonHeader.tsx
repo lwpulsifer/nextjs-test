@@ -1,6 +1,6 @@
 import React from 'react';
 import NowPlaying from './spotify/NowPlaying';
-import MyLink from './MyLink';
+import MyLink from './util/MyLink';
 
 const CommonHeader = () => {
   const links = [
