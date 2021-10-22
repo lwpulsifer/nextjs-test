@@ -1,15 +1,20 @@
 import React from 'react';
+import { BaseComponentProps } from '../../types/BaseComponent';
+import { joinClasses } from '../../util/ClassNames';
 
-type trackProps = {
+type trackProps = BaseComponentProps & {
   artist: string,
   album: string,
   songUrl: string,
   title: string,
+  id: string,
 }
 
-const Track: React.FC<trackProps> = ({ artist, album, songUrl, title }) => {
+const Track: React.FC<trackProps> = ({ 
+  artist, album, songUrl, title, additionalClassNames 
+}) => {
   return (
-    <li className={'flex border-2 m-2 p-2 rounded border-link'}>
+    <li className={`${joinClasses(additionalClassNames)} flex border-2 m-2 p-2 rounded border-link`}>
       <div className={'flex flex-col w-full sm:w-3/4'}>
         <div className={'font-bold'}>
           <a 

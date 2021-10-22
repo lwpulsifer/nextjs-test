@@ -1,7 +1,7 @@
 import React from "react";
 import Link from 'next/link';
-import { BaseComponentProps } from "../types/BaseComponent";
-import { joinClasses } from '../util/ClassNames';
+import { BaseComponentProps } from "../../types/BaseComponent";
+import { joinClasses } from '../../util/ClassNames';
 
 type MyLinkProps = BaseComponentProps & {
   address: string,

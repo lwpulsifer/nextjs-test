@@ -1,7 +1,7 @@
 import React from 'react';
 import { BaseComponentProps } from '../types/BaseComponent';
 import { joinClasses } from '../util/ClassNames';
-import MyLink from './MyLink';
+import MyLink from './util/MyLink';
 
 type ThemeInfoProps = BaseComponentProps;
 

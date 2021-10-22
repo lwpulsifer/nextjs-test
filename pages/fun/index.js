@@ -7,9 +7,8 @@ const Fun = () => {
   return (
     <BasePage isHomePage={false}>
       <main className={'flex flex-col items-center'}>
-        <h1 className={'text-3xl text-blue-900 font-bold m-5'}>Fun Stuff</h1>
+        <h1 className={'text-3xl text-header font-bold m-5'}>Fun Stuff</h1>
         <TopTracks />
-        <NowPlaying />
       </main>
     </BasePage>
   )
