@@ -1,7 +1,7 @@
 import CommonDivider from '../CommonDivider';
 import { TimelineEvent } from './Timeline';
-import RotatingComponents from '../util/RotatingComponents';
 import Image from 'next/image';
+import RotatingComponents from '../util/RotatingComponents';
 
 type timelineCardProps = TimelineEvent & {
   includeTrailingLine?: boolean,
