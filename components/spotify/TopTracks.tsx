@@ -36,7 +36,7 @@ const TopTracks = () => {
     ?.[0];
 
   return (
-    <aside className={'flex flex-col p-2 rounded-3xl w-5/6 lg:w-2/3 xl:w-1/2 bg-background'}>
+    <aside className={'flex flex-col p-2 rounded-3xl w-5/6 lg:w-2/3 xl:w-1/2 bg-background shadow-lg'}>
       <span className={'flex items-center justify-center text-2xl font-bold text-header m-2'}>
         My Spotify Top Tracks
       </span>
