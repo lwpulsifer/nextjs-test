@@ -1,12 +1,11 @@
-import { createTokenAuth } from "@octokit/auth-token";
-import { Octokit } from 'octokit';
-
 const github_token = process.env.GITHUB_TOKEN;
-const octo = new Octokit({ auth: github_token });
 
-export const printLogin = async () => {
-  const {
-    data: { login },
-  } = await octo.rest.users.getAuthenticated();
-  console.log("Hello, %s", login);
+export default async function getGithubRepos() {
+  let headers = new Headers();
+  headers.set('Authorization', 'Basic ' + Buffer.from("lwpulsifer:" + github_token, "base64").toString("base64"));
+
+  const fetchResult = await fetch("https://api.github.com/users/lwpulsifer/repos", { headers });
+  return fetchResult.json();
 }
+
+

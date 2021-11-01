@@ -4,14 +4,18 @@ import { useInterval } from '../../hooks/useInterval';
 import { BaseComponentProps } from '../../types/BaseComponent';
 import { wrapSlice } from '../../util/ArrayUtils';
 import { joinClasses } from '../../util/ClassNames';
+import Image from 'next/image';
+import CarouselProgressBar from './CarouselProgressBar';
 
-const isEven = (num: number) => num % 2 === 0;
+const CONTROL_IMAGE_SIZE = 25;
 
 type CarouselProps = BaseComponentProps & {
   initialIndex?: number,
   autoRotate?: boolean,
   rotationIntervalMs?: number,
   numItemsToDisplay?: number,
+  showControls?: boolean,
+  showProgressBar?: boolean,
 };
 
 const Carousel: React.FC<CarouselProps> = ({ 
@@ -21,10 +25,15 @@ const Carousel: React.FC<CarouselProps> = ({
   rotationIntervalMs = 2000,
   numItemsToDisplay = 1,
   additionalClassNames = '',
+  showControls = false,
+  showProgressBar = false,
 }) => {
 
   const [index, setIndex] = useState<number>(initialIndex);
   const { isHovered, eventListeners } = useHoverState();
+
+  const incrementIndex = () => setIndex(index => (index + 1) % displayableChildren.length);
+  const decrementIndex = () => setIndex(index => index === 0 ? displayableChildren.length - 1 : index - 1);
 
   const displayableChildren: React.ReactChild[] = typeof children === 'object'
     ? Array.from(
@@ -35,7 +44,7 @@ const Carousel: React.FC<CarouselProps> = ({
     : [children];
 
   useInterval(
-    () => setIndex(index => (index + 1) % displayableChildren.length),
+    incrementIndex,
     autoRotate && !isHovered ? rotationIntervalMs : null,
   );
 
@@ -47,8 +56,20 @@ const Carousel: React.FC<CarouselProps> = ({
   }
 
   return (
-    <section className={`carousel ${joinClasses(additionalClassNames)}`} {...eventListeners}>
-      {displayElements}
+    <section className={`carousel ${joinClasses(additionalClassNames)} flex flex-col`} {...eventListeners}>
+      <div className="flex flex-col md:flex-row" >
+        {showControls && 
+          <button onClick={decrementIndex}>
+            <Image src={'/left-arrow.png'} width={CONTROL_IMAGE_SIZE} height={CONTROL_IMAGE_SIZE} alt={''} /> 
+          </button>
+        }
+        {displayElements}
+        {showControls && 
+          <button onClick={incrementIndex}>
+            <Image src={'/right-arrow.png'} width={CONTROL_IMAGE_SIZE} height={CONTROL_IMAGE_SIZE} alt={''} /> 
+          </button>}
+      </div>
+      <CarouselProgressBar index={index} totalItems={displayableChildren.length} numToDisplay={numItemsToDisplay} />
     </section>
   )
 };
