@@ -11,7 +11,7 @@ export default function CarouselProgressBar({ index, totalItems, numToDisplay }:
   return (
     <div className="flex">
       {[...new Array(totalItems)].map((_, i) => 
-        <div className={`${displayRange.includes(i) ? "border-header" : "border-highlight"} w-2 h-2 border-b-2`}>
+        <div className={`${displayRange.includes(i) ? "border-header" : "border-highlight"} w-2 h-2 border-b-2`} key={i}>
           <span className="bg-highlight w-1 h-1 rounded-full m-1" />
         </div>
       )}
