@@ -23,7 +23,7 @@ const NowPlaying = ({ additionalClassNames = '', includeImage = true } : NowPlay
           </span>
         </>
       )
-      : <span className={'m-2'}>Nothing playing at the moment</span>
+      : <span className={'m-2 text-header'}>Nothing playing at the moment</span>
   );
 
   return (

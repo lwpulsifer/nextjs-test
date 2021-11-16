@@ -14,10 +14,12 @@ module.exports = {
     extend: {},
     colors: {
       ...colors,
-      background: '#FFB700',
-      header: colors.gray[900],
-      link: colors.gray[700],
-      highlight: '#f5f9ff',
+      background: colors.sky[900],
+      header: colors.sky[200],
+      link: colors.sky[500],
+      highlight: colors.blue[200],
+      highlightHeader: colors.gray[900],
+      offset: colors.sky[600],
     }
   },
   variants: {

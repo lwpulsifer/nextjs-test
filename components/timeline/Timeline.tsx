@@ -106,8 +106,8 @@ export default function Timeline() {
     .flat();
 
   return (
-    <section className={'flex flex-col p-3 items-center justify-center bg-background rounded-2xl w-5/6 lg:w-2/3 xl:w-1/2'}>
-      <h1 className="text-xl text-header font-bold" >Personal timeline</h1>
+    <section className={'flex flex-col p-3 items-center justify-center bg-highlight rounded-2xl w-5/6 lg:w-2/3 xl:w-1/2'}>
+      <h1 className="text-xl font-bold" >Personal timeline</h1>
       <ExpandableList
         items={displayEvents}
         initialItemsToShow={5}

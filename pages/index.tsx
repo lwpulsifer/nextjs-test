@@ -1,6 +1,8 @@
 import Head from 'next/head'
-import React from 'react';
+import React, { useEffect } from 'react';
 import BasePage from '../components/BasePage';
+import PageViewsTracker from '../components/PageViewsTracker';
+import { supabase } from '../lib/db/supabase';
 
 const Home = () => {
   return (
@@ -12,8 +14,8 @@ const Home = () => {
           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         </Head>
 
-        <main className={'w-11/12 md:w-1/2 bg-background flex flex-col justify-center items-center rounded-lg'}>
-          <h1 className={'text-4xl font-medium m-4 text-header text-center'}>
+        <main className={'w-11/12 md:w-1/2 bg-highlight flex flex-col justify-center items-center rounded-lg'}>
+          <h1 className={'text-4xl font-medium m-4 text-highlightHeader text-center'}>
             Hi, I&apos;m Liam Pulsifer
           </h1>
           <div className={'w-full md:w-11/12 rounded-xl text-center p-3 m-3'}>

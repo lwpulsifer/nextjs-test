@@ -6,7 +6,7 @@ import { joinClasses } from '../util/ClassNames';
 const particlesConfig: RecursivePartial<IOptions> = {
   background: {
     color: {
-      value: "#FFB700",
+      value: "#0c4a6e",
     },
   },
   fpsLimit: 60,
@@ -17,30 +17,19 @@ const particlesConfig: RecursivePartial<IOptions> = {
     },
   },
   particles: {
-    color: {
-      value: "#1B1C0E",
-    },
-    links: {
-      color: "#0d47af",
-      distance: 150,
-      enable: true,
-      opacity: 0.2,
-      width: 1,
-    },
     collisions: {
       enable: false,
     },
     move: {
-      direction: "none",
+      direction: "left",
       enable: true,
       outMode: "out",
       random: false,
       speed: {
-        min: .5,
-        max: 1,
+        min: .2,
+        max: .5,
       },
       straight: false,
-      warp: true,
     },
     number: {
       density: {
@@ -53,11 +42,38 @@ const particlesConfig: RecursivePartial<IOptions> = {
       value: 0.7,
     },
     shape: {
-      type: "circle",
+      type: "image",
+      options: {
+        images: [
+          {
+            height: 128,
+            width: 128,
+            src: 'octopus.png',
+          },
+          {
+            height: 60,
+            width: 90,
+            src: '/tiny_fish.png',
+          },
+          {
+            height: 120,
+            width: 180,
+            src: '/tiny_fish.png',
+          },
+          {
+            height: 2000,
+            width: 2000,
+            src: '/sea-turtle.png',
+          }
+        ]
+      },
     },
     size: {
       random: true,
-      value: 15,
+      value: {
+        min: 10,
+        max: 20,
+      }
     },
   },
   detectRetina: true,
