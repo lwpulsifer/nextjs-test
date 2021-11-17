@@ -14,7 +14,7 @@ const MyLink: React.FC<MyLinkProps> = ({ address, title, header = false, additio
   const className = joinClasses(
     joinClasses(additionalClassNames),
     header ? 'text-header font-bold' : 'text-link',
-    'hover:text-highlight inline'
+    'hover:underline inline'
   );
 
   return (
