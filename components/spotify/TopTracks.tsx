@@ -35,10 +35,6 @@ const TopTracks = () => {
     .find(([_, tracks]) => tracks.length / 10 > .5)
     ?.[0];
 
-  if (error) {
-    return null;
-  }
-
   return (
     <aside className={'flex flex-col p-2 rounded-3xl w-5/6 lg:w-2/3 xl:w-1/2 bg-highlight'}>
       <span className={'flex items-center justify-center text-2xl font-bold text-highlightHeader m-2'}>
@@ -59,7 +55,7 @@ const TopTracks = () => {
             showCollapseButton={false}
           />
         : <div className="flex items-center justify-center text-highlightHeader font-bold">
-            Loading top tracks...
+            {error ? "Error loading top tracks" : "Loading top tracks..."}
           </div>
       }
       {artistWithMoreThanHalf

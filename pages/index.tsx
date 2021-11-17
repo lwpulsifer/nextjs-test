@@ -1,19 +1,10 @@
-import Head from 'next/head'
-import React, { useEffect } from 'react';
+import React from 'react';
 import BasePage from '../components/BasePage';
-import PageViewsTracker from '../components/PageViewsTracker';
-import { supabase } from '../lib/db/supabase';
 
 const Home = () => {
   return (
     <BasePage>
       <div className={'flex flex-col items-center justify-center w-full mt-4'}>
-        <Head>
-          <title>Liam Pulsifer</title>
-          <meta name="description" content="Liam Pulsifer Personal Website" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        </Head>
-
         <main className={'w-11/12 md:w-1/2 bg-highlight flex flex-col justify-center items-center rounded-lg'}>
           <h1 className={'text-4xl font-medium m-4 text-highlightHeader text-center'}>
             Hi, I&apos;m Liam Pulsifer

@@ -1,5 +1,4 @@
 import useSWR from "swr";
-import { supabase } from "../lib/db/supabase";
 import Fetcher from "../lib/fetch/fetcher";
 import { useEffect, useState } from 'react';
 import { PageViewsResponse, PageViewError } from "../pages/api/page-views/[pageUrl]";
@@ -21,8 +20,11 @@ export default function PageViewsTracker() {
   if (!pageViewData) {
     displayContent = "Loading page views..."
   }
-  else if (error || 'error' in pageViewData) {
+  else if (error) {
     displayContent = "Error: could not fetch page view data."
+  }
+  else if ('error' in pageViewData) {
+    displayContent = `Error: ${pageViewData.error}`;
   }
   else {
     displayContent = `Page views: ${pageViewData.pageViews.length}`;
