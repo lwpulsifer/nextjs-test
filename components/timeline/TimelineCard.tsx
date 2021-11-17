@@ -12,7 +12,7 @@ const TimelineCard: React.FC<timelineCardProps> = ({ beginning, end, title, desc
   const yearBlockClassName = 'w-full border-link border-2 p-1.5 rounded-xl flex justify-center';
 
   return (
-    <li className={'flex flex-col md:flex-row items-start w-full'}>
+    <li className={'flex flex-col md:flex-row items-center md:items-start w-full'}>
       <div className={'flex mb-2 md:mb-0 flex-col w-32 items-center mr-4 font-bold'}>
         <RotatingComponents additionalClassNames={yearBlockClassName} autoMove={false}>
           <div className="flex items-center" >
@@ -32,7 +32,7 @@ const TimelineCard: React.FC<timelineCardProps> = ({ beginning, end, title, desc
         {includeTrailingLine && <div className={'w-px h-full bg-highlight'}/>}
       </div>
       <div className={'flex flex-col w-full mb-5'}>
-        <section className={'flex flex-col md:flex-row justify-between'}>
+        <section className={'flex flex-col md:flex-row items-center justify-between'}>
           <span>
             <h3 className={'font-bold'}>{title}</h3>
           </span>
