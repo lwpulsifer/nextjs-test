@@ -9,7 +9,7 @@ export default function PageViewsTracker() {
 
   useEffect(() => {
     setEncodedUrl(encodeURI(window.location.pathname));
-  })
+  }, []);
 
   const { data: pageViewData, error } = useSWR<PageViewsResponse>(`api/page-views/${encodedUrl}`, Fetcher, {
     revalidateOnFocus: false,
