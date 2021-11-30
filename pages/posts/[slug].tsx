@@ -24,8 +24,8 @@ function BlogPost({ post }: BlogPostProps) {
         <title>{post ? `${postData.title} — ${postData.author}` : "Blog Post"}</title>
       </Head>
       <BaseCard additionalClassNames={'font-serif font-thin'}>
+        <PostTitle title={postData.title} />
         <section className="w-11/12 p-3">
-          <PostTitle title={postData.title} />
           <PostBody post={post} />
           <PostFooter post={post} />
         </section>
@@ -49,10 +49,10 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const Post = getAllPosts();
+  const posts = getAllPosts();
 
   return {
-    paths: Post.map((post) => {
+    paths: posts.map((post) => {
       return {
         params: {
           slug: post.data.slug,
