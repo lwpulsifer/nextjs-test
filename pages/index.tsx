@@ -1,11 +1,13 @@
 import React from 'react';
+import BaseCard from '../components/BaseCard';
 import BasePage from '../components/BasePage';
+import Timeline from '../components/timeline/Timeline';
 
 const Home = () => {
   return (
     <BasePage>
       <div className={'flex flex-col items-center justify-center w-full mt-4'}>
-        <main className={'w-11/12 md:w-1/2 bg-highlight flex flex-col justify-center items-center rounded-lg'}>
+        <BaseCard>
           <h1 className={'text-4xl font-medium m-4 text-highlightHeader text-center'}>
             Hi, I&apos;m Liam Pulsifer
           </h1>
@@ -17,7 +19,10 @@ const Home = () => {
             touch, and please feel free to peruse the various links on this site to get 
             a sense of who I am and what I&apos;m doing. 
           </div>
-        </main>
+        </BaseCard>
+        <BaseCard>
+          <Timeline />
+        </BaseCard>
       </div>
     </BasePage>
   )

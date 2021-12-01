@@ -20,10 +20,10 @@ export default function MinimalPost({ post }: { post: Post }) {
       <Link href={`/posts/${post.data.slug}`} passHref>
         <section className="">
           <div className={`flex justify-between ${isHovered ? 'underline' : 'no-underline'}`}>
-            <div className="flex flex-col">
+            <div className="flex flex-col font-bold">
               <span>{post.data.title}</span>
             </div>
-            <div>
+            <div className="italic">
               <span>{formattedDate}</span>
             </div>
           </div>

@@ -59,7 +59,7 @@ const TopTracks = () => {
           </div>
       }
       {artistWithMoreThanHalf
-        ? <div className="text-header text-md text-center mt-3" >
+        ? <div className="text-highlightHeader font-serif text-md text-center mt-3" >
             Yeah, I know it&apos;s embarrassing to have more than half of my top ten 
             be from <span className="italic">{artistWithMoreThanHalf}</span> 🙃
           </div>
