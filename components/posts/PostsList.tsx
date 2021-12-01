@@ -11,14 +11,7 @@ function hasTagWithPrefix(post: Post, prefix: string) {
 }
 
 export default function PostsList({ posts }: { posts: Post[] }) {
-  const [postFilter, setPostFilter] = useState(null);
-
-  const updatePostFilter = (e) => {
-    const newValue = e.target.value === ''
-      ? null
-      : e.target.value;
-    setPostFilter(newValue);
-  };
+  const [postFilter, setPostFilter] = useState("");
 
   const filteredPosts = posts
     .filter(post => post.data.display)
@@ -42,7 +35,7 @@ export default function PostsList({ posts }: { posts: Post[] }) {
         <h1 className="font-bold text-2xl">Blog Posts</h1>
         <span>
           <label htmlFor={''} className={'mr-2 font-serif'}>Filter posts by tag</label>
-          <input type={'search'} value={postFilter} onChange={updatePostFilter} className={"py-1 px-2 rounded-md focus:border-non focus:outline-none bg-sky-200 focus:shadow-md"} />
+          <input type={'search'} value={postFilter} onChange={e => setPostFilter(e.target.value)} className={"py-1 px-2 rounded-md focus:border-non focus:outline-none bg-sky-200 focus:shadow-md"} />
         </span>
       </div>
       {listDisplay}
