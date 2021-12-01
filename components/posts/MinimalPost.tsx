@@ -20,8 +20,9 @@ export default function MinimalPost({ post }: { post: Post }) {
       <Link href={`/posts/${post.data.slug}`} passHref>
         <section className="">
           <div className={`flex justify-between ${isHovered ? 'underline' : 'no-underline'}`}>
-            <div className="flex flex-col font-bold">
-              <span>{post.data.title}</span>
+            <div className="flex flex-col">
+              <span className="font-bold">{post.data.title}</span>
+              <span className="text-sm italic">{post.data.tags}</span>
             </div>
             <div className="italic">
               <span>{formattedDate}</span>

@@ -10,6 +10,8 @@ export type PostHeaderData = {
   desc: string,
   date: string,
   author: string,
+  tags: string,
+  display: boolean,
 }
 
 export type PostContent = string;
