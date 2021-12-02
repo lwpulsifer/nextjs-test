@@ -2,6 +2,9 @@ import { Post } from "../../lib/markdown/api";
 import Link from 'next/link';
 import useHoverState from "../../hooks/useHoverState";
 
+/**
+ * TODO: Investigate using Tailwind's group property to simplify hover states/maybe remove hook usage.
+ */
 export default function MinimalPost({ post }: { post: Post }) {
 
   const formattedDate = new Date(Date.parse(post.data.date)).toLocaleString("en-US", {

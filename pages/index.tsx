@@ -2,15 +2,19 @@ import React from 'react';
 import BaseCard from '../components/BaseCard';
 import BasePage from '../components/BasePage';
 import Timeline from '../components/timeline/Timeline';
+import Image from 'next/image';
 
 const Home = () => {
   return (
     <BasePage>
       <div className={'flex flex-col items-center justify-center w-full mt-4'}>
         <BaseCard>
-          <h1 className={'text-4xl font-medium m-4 text-highlightHeader text-center'}>
-            Hi, I&apos;m Liam Pulsifer
-          </h1>
+          <div className="flex justify-between">
+            <h1 className={'text-4xl font-medium m-4 text-highlightHeader text-center'}>
+              Hi, I&apos;m Liam Pulsifer
+            </h1>
+            <Image src={'/grad_cropped.jpg'} width={36} height={36} alt={'Me'} />
+          </div>
           <div className={'w-full md:w-11/12 rounded-xl text-center p-3 m-3'}>
             I&apos;m a software engineer, writer, and amateur <a className={'text-link hover:underline'} href={'https://www.strava.com/athletes/47580246'}>athlete</a>. 
             When I&apos;m not working at my day job at <a className={'text-link hover:underline'} href={'https://www.ixl.com/'}>IXL Learning</a>,
