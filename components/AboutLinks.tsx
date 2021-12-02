@@ -12,18 +12,22 @@ const AboutLinks= () => {
       address: 'https://twitter.com/LiamPulsifer',
     },
     {
-      title: 'Real Python video tutorials',
+      title: 'Real Python',
       address: 'https://realpython.com/team/lwpulsifer/',
     },
     {
       title: 'Resume',
       address: 'https://www.notion.so/Liam-Pulsifer-fb7f675c5e5e4403aa705a42f931a82b',
+    },
+    {
+      title: 'LinkedIn',
+      address: 'https://www.linkedin.com/in/liamwpulsifer/',
     }
   ];
   
   return (
-    <aside className={'w-1/2 grid grid-cols-1 sm:grid-cols-2 max-w-md gap-y-5 p-3'}>
-      {links.map(link => <MyLink key={link.title} header={true} additionalClassNames={'flex justify-center items-center text-center'} {...link} />)}
+    <aside className={'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-md gap-y-5 p-3'}>
+      {links.map(link => <MyLink key={link.title} header={true} additionalClassNames={'flex text-left justify-center items-center mr-3 font-thin text-md'} {...link} />)}
     </aside>
   )
 };
