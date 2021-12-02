@@ -5,7 +5,7 @@ import { PageViewsResponse, PageViewError } from "../pages/api/page-views/[pageU
 
 export default function PageViewsTracker() {
 
-  const [encodedUrl, setEncodedUrl] = useState('/');
+  const [encodedUrl, setEncodedUrl] = useState('');
 
   useEffect(() => {
     setEncodedUrl(encodeURI(window.location.pathname).split("/").slice(1).join("|"));
