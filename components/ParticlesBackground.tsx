@@ -48,7 +48,7 @@ const particlesConfig: RecursivePartial<IOptions> = {
           {
             height: 128,
             width: 128,
-            src: 'octopus.png',
+            src: '/octopus.png',
           },
           {
             height: 60,

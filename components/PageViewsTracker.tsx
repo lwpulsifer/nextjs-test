@@ -8,10 +8,10 @@ export default function PageViewsTracker() {
   const [encodedUrl, setEncodedUrl] = useState('/');
 
   useEffect(() => {
-    setEncodedUrl(encodeURI(window.location.pathname));
+    setEncodedUrl(encodeURI(window.location.pathname).split("/").slice(1).join("|"));
   }, []);
 
-  const { data: pageViewData, error } = useSWR<PageViewsResponse>(`api/page-views/${encodedUrl}`, Fetcher, {
+  const { data: pageViewData, error } = useSWR<PageViewsResponse>(`/api/page-views/${encodedUrl}`, Fetcher, {
     revalidateOnFocus: false,
     revalidateOnReconnect: false,
   });

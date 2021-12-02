@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import TimelineCard from "./TimelineCard";
 import YearCard from './YearCard';
 import { sorted } from '../../util/ArrayUtils';
@@ -106,7 +105,7 @@ export default function Timeline() {
     .flat();
 
   return (
-    <section className={'flex flex-col p-3 items-center justify-center bg-highlight rounded-2xl w-5/6 lg:w-2/3 xl:w-1/2'}>
+    <section className={'flex flex-col p-3 items-center justify-center bg-highlight rounded-2xl'}>
       <h1 className="text-xl font-bold" >Personal timeline</h1>
       <ExpandableList
         items={displayEvents}

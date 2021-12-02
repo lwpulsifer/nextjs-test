@@ -10,7 +10,7 @@ type NowPlayingProps = BaseComponentProps & {
 };
 
 const NowPlaying = ({ additionalClassNames = '', includeImage = true } : NowPlayingProps) => {
-  const { data } = useSWR('api/now-playing', fetcher);
+  const { data } = useSWR('/api/now-playing', fetcher);
 
   const nowPlayingElement = (
     data?.isPlaying 

@@ -9,13 +9,13 @@ const CommonHeader = () => {
       title: 'Home',
     },
     {
-      path: '/about',
-      title: 'About me',
-    },
-    {
       path: '/fun',
       title: 'Fun'
     },
+    {
+      path: '/posts',
+      title: 'Blog',
+    }
   ];
 
   return (
@@ -31,5 +31,6 @@ const CommonHeader = () => {
     </nav>
   )
 };
+
 
 export default CommonHeader;
