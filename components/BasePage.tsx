@@ -26,7 +26,7 @@ const BasePage = (
             href="/favicon.png" />
       </Head>
       <ParticlesBackground />
-      <div className="h-full w-full relative p-2 md:p-4 lg:p-6 flex flex-col items-center">
+      <div className="h-full w-full relative p-2 md:p-4 lg:p-6 flex flex-col items-center gap-2">
         <CommonHeader />
         {children}
         <CommonFooter isHomePage={isHomePage} />

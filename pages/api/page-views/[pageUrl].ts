@@ -4,7 +4,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 export type PageView = { id: number, creation_date: string, user_ip: string, url: string };
 export type PageViewError = { error: string };
-export type PageViewsResponse = PageViewError | { pageViews: PageView[] };
+export type PageViewsResponse = PageViewError | { numPageViews: number };
 
 /**
  * Returns the list of page views for the given page.
@@ -35,9 +35,9 @@ const pageViews = async(req: NextApiRequest, res: NextApiResponse<PageViewsRespo
     }
   } 
 
-  const { data: pageViews, error } = await supabase
+  const { error, count } = await supabase
     .from<PageView>('site_views')
-    .select("*")
+    .select("*", { count: 'exact' })
     .eq('url', pageUrl);
 
   if (error) {
@@ -47,7 +47,7 @@ const pageViews = async(req: NextApiRequest, res: NextApiResponse<PageViewsRespo
   }
 
   return res.status(200).json({
-    pageViews
+    numPageViews: count,
   });
 }
 

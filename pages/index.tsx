@@ -10,11 +10,11 @@ const Home = () => {
       <div className={'flex flex-col items-center justify-center w-full mt-4'}>
         <BaseCard>
           <div className="flex items-center justify-center">
-            <div className="flex flex-col w-3/4 items-center">
-              <h1 className={'text-4xl font-medium m-1 text-highlightHeader text-center'}>
+            <div className="flex gap-1 flex-col w-3/4 items-center">
+              <h1 className={'text-4xl font-medium text-highlightHeader text-center'}>
                 Hi, I&apos;m Liam Pulsifer
               </h1>
-              <div className={'w-full md:w-11/12 rounded-xl text-center p-3 m-1'}>
+              <div className={'w-full md:w-11/12 rounded-xl text-center p-3'}>
                 I&apos;m a software engineer, writer, and amateur <a className={'text-link hover:underline'} href={'https://www.strava.com/athletes/47580246'}>athlete</a>. 
                 When I&apos;m not working at my day job at <a className={'text-link hover:underline'} href={'https://www.ixl.com/'}>IXL Learning</a>,
                 you can often find me reading, playing tennis, or surfing around the San Francisco bay area.

@@ -27,7 +27,7 @@ export default function PageViewsTracker() {
     displayContent = `Error: ${pageViewData.error}`;
   }
   else {
-    displayContent = `Page views: ${pageViewData.pageViews.length}`;
+    displayContent = `Page views: ${pageViewData.numPageViews}`;
   }
 
   return (
