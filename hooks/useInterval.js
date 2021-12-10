@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from "react";
 
 /**
  * Declarative version of setInterval. Updates to reflect changing callback and delay parameters
@@ -13,22 +13,22 @@ import React, { useRef, useEffect } from 'react';
  * Modified from Dan Abramov's at {@link https://overreacted.io/making-setinterval-declarative-with-react-hooks/}
  */
 export function useInterval(callback, delay, executeImmediately = undefined) {
-  const savedCallback = useRef();
+    const savedCallback = useRef();
 
-  // Remember the latest callback.
-  useEffect(() => {
-    savedCallback.current = callback;
-  }, [callback]);
+    // Remember the latest callback.
+    useEffect(() => {
+        savedCallback.current = callback;
+    }, [callback]);
 
-  // Set up the interval.
-  useEffect(() => {
-    function tick() {
-      savedCallback.current();
-    }
-    if (delay !== null) {
-      executeImmediately && executeImmediately() && tick();
-      const id = setInterval(tick, delay);
-      return () => clearInterval(id);
-    }
-  }, [delay, executeImmediately]);
+    // Set up the interval.
+    useEffect(() => {
+        function tick() {
+            savedCallback.current();
+        }
+        if (delay !== null) {
+            executeImmediately && executeImmediately() && tick();
+            const id = setInterval(tick, delay);
+            return () => clearInterval(id);
+        }
+    }, [delay, executeImmediately]);
 }
