@@ -14,10 +14,10 @@ Blogs (and, I suppose, personal websites) are funny things. On the one hand, the
 
 With all of that said, I'll be treating this experiment as an extended attempt to figure out why it is that I'm feeling like writing a blog right now. Some ideas that have occurred to me so far are as follows:
 
--   I miss writing. Since I graduated college in the spring of 2020, I haven't had to write more than a paragraph or two at a time, and I miss the process of converting the contents of my own brain into something that can be seen, read, and understood by other people.
--   I want a place to record some of the things I've learned in the last year and a half of work as a software engineer.
--   I have some thoughts that I want to put out into the world, and this feels like a low-stakes place to do so.
--   I hope that regular writing might help mend my increasingly confused relationship with time (details to come in a future post, I think).
+- I miss writing. Since I graduated college in the spring of 2020, I haven't had to write more than a paragraph or two at a time, and I miss the process of converting the contents of my own brain into something that can be seen, read, and understood by other people.
+- I want a place to record some of the things I've learned in the last year and a half of work as a software engineer.
+- I have some thoughts that I want to put out into the world, and this feels like a low-stakes place to do so.
+- I hope that regular writing might help mend my increasingly confused relationship with time (details to come in a future post, I think).
 
 Anyway, I'll leave it to you, oh reader to determine if this thing I'm doing is worthwhile. All I know is that I feel like writing, and I'm hoping to do it more regularly.
 

@@ -1,6 +1,6 @@
 import { JoinableClass } from "../util/ClassNames";
 
 export type BaseComponentProps = {
-    additionalClassNames?: JoinableClass;
-    children?: React.ReactNode;
+  additionalClassNames?: JoinableClass;
+  children?: React.ReactNode;
 };
