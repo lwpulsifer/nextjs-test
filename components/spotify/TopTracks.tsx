@@ -51,7 +51,7 @@ const TopTracks = () => {
             <Track {...track} key={track.id} additionalClassNames={"w-full"} />
           ))}
           initialItemsToShow={3}
-          itemsIncrement={1}
+          itemsIncrement={10}
           additionalClassNames={"p-1 rounded-lg list-decimal min-h-[5rem]"}
           showCollapseButton={false}
         />
