@@ -1,7 +1,7 @@
 import { Post } from "../../lib/markdown/api";
 
 export default function PostFooter({ post }: { post: Post }) {
-  const formattedDate = new Date(Date.parse(post.data.date)).toLocaleString(
+  const formattedDate = new Date(Date.parse(post.created_at)).toLocaleString(
     "en-US",
     {
       year: "numeric",
@@ -12,7 +12,7 @@ export default function PostFooter({ post }: { post: Post }) {
 
   return (
     <div className={"w-full flex justify-end"}>
-      <span>{`— ${post.data.author.split(" ")[0]}, ${formattedDate}`}</span>
+      <span>{`— ${post.author.split(" ")[0]}, ${formattedDate}`}</span>
     </div>
   );
 }

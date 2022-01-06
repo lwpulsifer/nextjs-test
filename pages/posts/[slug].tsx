@@ -17,16 +17,15 @@ function BlogPost({ post }: BlogPostProps) {
     return null;
   }
 
-  const { data: postData, content: postContent } = post;
   return (
     <BasePage>
       <Head>
         <title>
-          {post ? `${postData.title} — ${postData.author}` : "Blog Post"}
+          {post ? `${post.title} — ${post.author}` : "Blog Post"}
         </title>
       </Head>
       <BaseCard additionalClassNames={"font-serif font-thin"}>
-        <PostTitle title={postData.title} />
+        <PostTitle title={post.title} />
         <section className="w-11/12 p-3">
           <PostBody post={post} />
           <PostFooter post={post} />
@@ -37,13 +36,13 @@ function BlogPost({ post }: BlogPostProps) {
 }
 
 export async function getStaticProps({ params }) {
-  const post = getPostBySlug(params.slug);
+  const post = await getPostBySlug(params.slug);
   const content = await markdownToHtml(post.content || "");
 
   return {
     props: {
       post: {
-        data: post.data,
+        ...post,
         content,
       },
     },
@@ -51,13 +50,13 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts();
+  const posts = await getAllPosts();
 
   return {
     paths: posts.map((post) => {
       return {
         params: {
-          slug: post.data.slug,
+          slug: post.slug,
         },
       };
     }),

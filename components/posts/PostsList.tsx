@@ -3,7 +3,7 @@ import { Post } from "../../lib/markdown/api";
 import MinimalPost from "./MinimalPost";
 
 function getTags(post: Post) {
-  return post.data.tags.split(",");
+  return post.tags.split(",");
 }
 
 function hasTagWithPrefix(post: Post, prefix: string) {
@@ -14,7 +14,7 @@ export default function PostsList({ posts }: { posts: Post[] }) {
   const [postFilter, setPostFilter] = useState("");
 
   const filteredPosts = posts
-    .filter((post) => post.data.display)
+    .filter((post) => post.display)
     .filter(
       (post) => postFilter === null || hasTagWithPrefix(post, postFilter),
     );
@@ -27,7 +27,7 @@ export default function PostsList({ posts }: { posts: Post[] }) {
         }
       >
         {filteredPosts.map((post) => (
-          <MinimalPost key={post.data.slug} post={post} />
+          <MinimalPost key={post.slug} post={post} />
         ))}
       </ol>
     ) : (
@@ -45,10 +45,11 @@ export default function PostsList({ posts }: { posts: Post[] }) {
       <div className="w-full mb-3 py-3 px-8 bg-sky-300 flex items-center justify-between rounded-t-2xl">
         <h1 className="font-bold text-2xl">Blog Posts</h1>
         <span>
-          <label htmlFor={""} className={"mr-2 font-serif"}>
+          <label htmlFor={"filter-posts"} className={"mr-2 font-serif"}>
             Filter posts by tag
           </label>
           <input
+            id={'filter-posts'}
             type={"search"}
             value={postFilter}
             onChange={(e) => setPostFilter(e.target.value)}
