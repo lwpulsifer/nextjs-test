@@ -1,6 +1,6 @@
 import React from "react";
-import BasePage from "../../components/BasePage";
-import Timeline from "../../components/timeline/Timeline";
+import BasePage from "../../commonComponents/BasePage";
+import Timeline from "../../commonComponents/timeline/Timeline";
 
 const AboutMe = () => {
 	return (

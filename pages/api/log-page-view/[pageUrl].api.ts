@@ -1,7 +1,7 @@
-import { isDev } from "./../../../util/IsDev";
+import { isDev } from "../../../util/IsDev";
 import { supabase } from "../../../lib/db/supabase";
 import { NextApiRequest, NextApiResponse } from "next";
-import { PageView } from "../page-views/[pageUrl]";
+import { PageView } from "../page-views/[pageUrl].api";
 
 export default async function logPageView(
 	req: NextApiRequest,

@@ -1,7 +1,7 @@
 import React from "react";
-import BaseCard from "../components/BaseCard";
-import BasePage from "../components/BasePage";
-import Timeline from "../components/timeline/Timeline";
+import BaseCard from "../commonComponents/BaseCard";
+import BasePage from "../commonComponents/BasePage";
+import Timeline from "../commonComponents/timeline/Timeline";
 import Image from "next/image";
 
 const Home = () => {

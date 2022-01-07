@@ -1,6 +1,6 @@
 import React from "react";
-import TopTracks from "../../components/spotify/TopTracks";
-import BasePage from "../../components/BasePage";
+import TopTracks from "../../commonComponents/spotify/TopTracks";
+import BasePage from "../../commonComponents/BasePage";
 
 const Fun = () => {
 	return (

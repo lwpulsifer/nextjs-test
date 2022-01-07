@@ -1,9 +1,6 @@
-import { getAllPosts, Post } from "./../../../lib/markdown/api";
+import { getAllPosts, Post } from "../../../lib/markdown/api";
 import { NextApiRequest, NextApiResponse } from "next";
-
-type FetchPostError = { error: string };
-type FetchPostSuccess = { posts: Post[] };
-type FetchPostResponse = FetchPostError | FetchPostSuccess;
+import { FetchPostResponse } from "./post-utils";
 
 export default async function allPosts(
 	req: NextApiRequest,

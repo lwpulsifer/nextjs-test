@@ -1,10 +1,6 @@
-import { Post } from "./../../../lib/markdown/api";
 import { NextApiRequest, NextApiResponse } from "next";
 import { getPostBySlug } from "../../../lib/markdown/api";
-
-type FetchPostError = { error: string };
-type FetchPostSuccess = { post: Post };
-type FetchPostResponse = FetchPostError | FetchPostSuccess;
+import type { FetchPostResponse } from "./post-utils";
 
 export default async function postBySlug(
 	req: NextApiRequest,
@@ -21,6 +17,6 @@ export default async function postBySlug(
 			error: `No post found for slug ${slug}`,
 		});
 	} else {
-		return res.status(200).json({ post });
+		return res.status(200).json({ posts: [post] });
 	}
 }
