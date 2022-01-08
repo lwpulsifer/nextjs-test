@@ -1,4 +1,6 @@
 import React from "react";
+import useAuth from "../hooks/useAuth";
+import { supabase } from "../lib/db/supabase";
 import NowPlaying from "./spotify/NowPlaying";
 import MyLink from "./util/MyLink";
 
@@ -17,7 +19,6 @@ const CommonHeader = () => {
 			title: "Blog",
 		},
 	];
-
 	return (
 		<nav className={"flex items-center justify-center my-2 w-full"}>
 			<div className={"flex flex-col md:flex-row w-5/6 lg:w-2/3 xl:w-1/2"}>
@@ -34,7 +35,7 @@ const CommonHeader = () => {
 				</div>
 				<div
 					className={
-						"flex w-full xl:w-1/3 items-center justify-center lg:justify-end"
+						"flex w-full xl:w-1/3 items-center justify-center lg:justify-end gap-2"
 					}
 				>
 					{links.map(({ path, title }) => (
@@ -43,7 +44,6 @@ const CommonHeader = () => {
 							title={title}
 							key={title}
 							header={true}
-							additionalClassNames={"m-2"}
 						/>
 					))}
 				</div>

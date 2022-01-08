@@ -6,19 +6,24 @@ import { FetchPostResponse } from "../../api/posts/post-utils";
 import Head from "next/head";
 import BaseCard from "../../../commonComponents/BaseCard";
 import EditPostPage from "../../../commonComponents/posts/edit/EditPostPage";
+import useAuth from "../../../hooks/useAuth";
 
 export default function EditPost() {
 	const router = useRouter();
+	const { user } = useAuth();
 	const { slug } = router.query;
 	const cleanSlug = !slug || typeof slug === "string" ? slug : slug.join("");
 
 	const { error, data } = useSWR<FetchPostResponse>(
-		`/api/posts/${cleanSlug}`,
+		cleanSlug ? `/api/posts/${cleanSlug}` : null,
 		Fetcher,
-		{ isPaused: () => !cleanSlug },
 	);
 
 	const post = !data || "error" in data ? null : data.posts[0];
+
+	if (!user) {
+		window.location.assign("/posts");
+	}
 
 	if (!post) {
 		return <BasePage />;

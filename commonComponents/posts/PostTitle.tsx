@@ -1,3 +1,4 @@
+import useAuth from "../../hooks/useAuth";
 import BackToPostsLink from "./BackToPostsLink";
 import EditPostButton from "./EditPostButton";
 
@@ -12,6 +13,7 @@ export default function PostTitle({
 	slug,
 	tags,
 }: PostTitleProps) {
+	const { user } = useAuth();
 	return (
 		<div className="title-section w-full mb-3 py-5 bg-sky-300 flex items-center justify-center rounded-t-2xl">
 			<span className="flex items-center justify-between w-11/12">
@@ -21,7 +23,7 @@ export default function PostTitle({
 				</span>
 				<span className="flex flex-col justify-center items-center">
 					<BackToPostsLink />
-					<EditPostButton slug={slug} />
+					{user && <EditPostButton slug={slug} />}
 				</span>
 			</span>
 		</div>

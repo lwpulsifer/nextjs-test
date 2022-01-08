@@ -6,6 +6,7 @@ export default async function updatePost(
 	req: NextApiRequest,
 	res: NextApiResponse,
 ) {
+
 	const { body: data } = req;
 	if (!data || typeof data !== "string") {
 		return res.status(500).json({ error: "No data found" });

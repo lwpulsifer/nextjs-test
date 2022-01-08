@@ -1,5 +1,7 @@
+import useAuth from "../hooks/useAuth";
 import AboutLinks from "./AboutLinks";
 import PageViewsTracker from "./PageViewsTracker";
+import MyLink from "./util/MyLink";
 
 type commonFooterProps = {
 	isHomePage: boolean;

@@ -1,77 +1,9 @@
 import { Post } from "../../../lib/markdown/api";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useEffect, useRef } from "react";
 import Fetcher from "../../../lib/fetch/fetcher";
 import BackToPostLink from "./BackToPostLink";
-
-function capitalize(s: string) {
-	return s[0].toUpperCase() + s.slice(1).toLowerCase();
-}
-
-function RegisteredStringInput({
-	field,
-	def,
-	register,
-}: {
-	field: string;
-	def: string;
-	register;
-}) {
-	const { ref, ...rest } = register(field);
-	const textAreaRef = useRef(null);
-
-	useEffect(() => {
-		textAreaRef.current.style.height = "auto";
-		textAreaRef.current.style.height = textAreaRef.current.scrollHeight + "px";
-	}, []);
-
-	return (
-		<div className={"w-3/4 flex flex-col gap-3"}>
-			<label className={"w-full"} htmlFor={field}>
-				{capitalize(field)}
-			</label>
-			<textarea
-				className={"w-full p-3"}
-				id={field}
-				type={"text"}
-				defaultValue={def}
-				ref={(e) => {
-					ref(e);
-					textAreaRef.current = e;
-				}}
-				onInput={() => {
-					if (!textAreaRef.current) {
-						console.log("Ref not registered");
-						return;
-					}
-					textAreaRef.current.style.height = "auto";
-					textAreaRef.current.style.height =
-						textAreaRef.current.scrollHeight + "px";
-				}}
-				{...rest}
-			/>
-		</div>
-	);
-}
-
-function RegisteredCheckboxInput({
-	field,
-	def,
-	register,
-}: {
-	field: string;
-	def: boolean;
-	register;
-}) {
-	return (
-		<div className={"w-3/4 flex flex-col gap-3"}>
-			<label className={"w-full"} htmlFor={field}>
-				{capitalize(field)}
-			</label>
-			<input type={"checkbox"} checked={def} {...register(field)} />
-		</div>
-	);
-}
+import RegisteredStringInput from "../../util/formInputs/RegisteredStringInput";
+import RegisteredCheckboxInput from "../../util/formInputs/RegisteredCheckboxInput";
 
 type Inputs = Post;
 

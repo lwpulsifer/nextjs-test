@@ -6,6 +6,8 @@ import ParticlesBackground from "./ParticlesBackground";
 import ThemeInfo from "./ThemeInfo";
 import { joinClasses } from "../util/ClassNames";
 import { BaseComponentProps } from "../types/BaseComponent";
+import useAuth from "../hooks/useAuth";
+import MyLink from "./util/MyLink";
 
 type BasePageProps = BaseComponentProps & {
 	isHomePage?: boolean;
@@ -18,6 +20,7 @@ const BasePage = ({
 	additionalClassNames = "",
 	title = "Liam Pulsifer",
 }: BasePageProps) => {
+	const { user, signOut } = useAuth();
 	return (
 		<div
 			className={`${joinClasses(
@@ -35,6 +38,23 @@ const BasePage = ({
 				<CommonHeader />
 				{children}
 				<CommonFooter isHomePage={isHomePage} />
+			</div>
+			<div className="w-full flex justify-end p-3 z-10 fixed bottom-0">
+				{user 
+					? (
+						<button className={"text-header font-bold"} onClick={signOut}>
+							Sign out
+						</button>
+					)
+					: (
+						<MyLink
+							address={'/signin'}
+							title={"Sign in"}
+							key={"Sign in"}
+							header={true}
+						/>
+					)
+				}
 			</div>
 			<ThemeInfo additionalClassNames="fixed bottom-0 w-full flex justify-center" />
 		</div>
