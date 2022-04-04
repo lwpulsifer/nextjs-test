@@ -12,10 +12,10 @@ const CommonHeader = () => {
       path: "/fun",
       title: "Fun",
     },
-    {
-      path: "/posts",
-      title: "Blog",
-    },
+    // {
+    //   path: "/posts",
+    //   title: "Blog",
+    // },
   ];
 
   return (
