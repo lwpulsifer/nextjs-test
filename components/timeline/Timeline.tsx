@@ -14,6 +14,14 @@ export interface TimelineEvent {
 
 const events: TimelineEvent[] = [
   {
+    beginning: new Date("July 1, 2022"),
+    end: null,
+    title: "Promoted to Senior Software Engineer",
+    description: `After a busy two years as a Software Engineer, I was bumped up to the Senior level.
+                  I now spend much more of my time designing features for our IXL's web platform
+                  and collaborating with other teams to build them.`,
+  },
+  {
     beginning: new Date("August 18, 2020"),
     title: "Moved to San Francisco",
     description: "",
