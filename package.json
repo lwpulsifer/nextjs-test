@@ -9,8 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mantine/core": "^3.0.5",
-    "@mantine/hooks": "^3.0.5",
     "@supabase/supabase-js": "^1.28.0",
     "@types/react": "^17.0.30",
     "child_process": "^1.0.2",
@@ -21,7 +19,7 @@
     "jimp": "^0.16.2",
     "next": "^11.1.2",
     "particles.js": "^2.0.0",
-    "puppeteer": "^19.2.2",
+    "puppeteer-core": "10.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-tsparticles": "^1.36.0",
