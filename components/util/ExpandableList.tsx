@@ -85,10 +85,12 @@ const ExpandableList: React.FC<ExpandableListProps> = ({
         {items.slice(0, numItemsToShow)}
       </ol>
       <div className="w-full flex">
-        <div className="flex w-full justify-center">
-          {fewerButton}
-          {moreButton}
-        </div>
+        {!(numItemsToShow < initialItemsToShow + itemsIncrement && numItemsToShow >= items.length) &&
+          <div className="flex w-full justify-center">
+            {fewerButton}
+            {moreButton}
+          </div>
+        }
         <div className="absolute">
           {numItemsToShow > initialItemsToShow && showCollapseButton
             ? collapseButton

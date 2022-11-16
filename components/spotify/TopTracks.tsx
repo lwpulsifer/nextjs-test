@@ -28,8 +28,14 @@ type track = {
   id: string;
 };
 
-const TopTracks = () => {
-  const { data, error } = useSWR("api/top-tracks", fetcher);
+type TopTracksProps = {
+  initialItemsToShow?: number,
+  itemsIncrement?: number,
+  numTracks?: number,
+}
+
+const TopTracks = ({ initialItemsToShow = 3, itemsIncrement = 10, numTracks = 10 }: TopTracksProps) => {
+  const { data, error } = useSWR(`api/top-tracks/${numTracks}`, fetcher);
 
   const tracks: track[] = data?.tracks;
   const artistWithMoreThanHalf = Object.entries(
@@ -50,8 +56,8 @@ const TopTracks = () => {
           items={tracks.map((track) => (
             <Track {...track} key={track.id} additionalClassNames={"w-full"} />
           ))}
-          initialItemsToShow={3}
-          itemsIncrement={10}
+          initialItemsToShow={initialItemsToShow}
+          itemsIncrement={itemsIncrement}
           additionalClassNames={"top-tracks-list p-1 rounded-lg list-decimal min-h-[5rem]"}
           showCollapseButton={false}
         />

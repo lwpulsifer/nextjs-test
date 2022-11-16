@@ -10,6 +10,8 @@ import { BaseComponentProps } from "../types/BaseComponent";
 type BasePageProps = BaseComponentProps & {
   isHomePage?: boolean;
   title?: string;
+  includeHeaderAndFooter?: boolean;
+  includeBackground?: boolean;
 };
 
 const BasePage = ({
@@ -17,6 +19,8 @@ const BasePage = ({
   isHomePage = false,
   additionalClassNames = "",
   title = "Liam Pulsifer",
+  includeHeaderAndFooter = true,
+  includeBackground = true,
 }: BasePageProps) => {
   return (
     <div
@@ -30,13 +34,21 @@ const BasePage = ({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
-      <ParticlesBackground />
+      {includeBackground &&
+        <ParticlesBackground />      
+      }
       <div className="h-full w-full relative p-2 md:p-4 lg:p-6 flex flex-col items-center gap-2">
-        <CommonHeader />
+        {includeHeaderAndFooter &&
+          <CommonHeader />
+        }
         {children}
-        <CommonFooter isHomePage={isHomePage} />
+        {includeHeaderAndFooter &&
+          <CommonFooter isHomePage={isHomePage} />
+        }
       </div>
-      <ThemeInfo additionalClassNames="fixed bottom-0 w-full flex justify-center" />
+      { includeHeaderAndFooter &&
+        <ThemeInfo additionalClassNames="fixed bottom-0 w-full flex justify-center" />
+      }
     </div>
   );
 };

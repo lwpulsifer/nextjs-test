@@ -4,21 +4,23 @@ import Cors from 'cors'
 import fs from 'fs';
 import Jimp from 'jimp';
 
+const SCREENSHOT_URL_POSTFIX = "kindle";
+
 let puppeteer;
 let chrome = {
 	args: [],
 	executablePath: '',
 };
-let screenshotUrl;
 
+let screenshotBaseUrl;
 if (isDev()) {
 	puppeteer = require('puppeteer');
-	screenshotUrl = process.env.SCREENSHOT_URL;
+	screenshotBaseUrl = process.env.SCREENSHOT_BASE_URL;
 }
 else {
 	puppeteer = require('puppeteer-core');
 	chrome = require('chrome-aws-lambda');
-	screenshotUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_URL || process.env.PUBLIC_VERCEL_URL}/fun`;
+	screenshotBaseUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_URL || process.env.PUBLIC_VERCEL_URL}`;
 }
 
 // Initializing the cors middleware
@@ -59,19 +61,20 @@ export default async function handler(
 	});
 	const page = await browser.newPage();
 	await page.setViewport({ width: 600, height: 800 });
-	await page.goto(screenshotUrl);
+	await page.goto(`${screenshotBaseUrl}/${SCREENSHOT_URL_POSTFIX}`);
 
 	// Make sure content has loaded before we take a screenshot
 	await page.waitForSelector('.top-tracks-list');
 
+	const screenshotStoragePath = '/tmp/screenshot.png';
 	await page.screenshot({
-		path: '/tmp/screenshot.png',
+		path: screenshotStoragePath,
 	});
 
 	await browser.close();
 
-	await convert('/tmp/screenshot.png');
-	const screenshot = fs.readFileSync('/tmp/screenshot.png');
+	await convert(screenshotStoragePath);
+	const screenshot = fs.readFileSync(screenshotStoragePath);
 
 	res.writeHead(200, {
 		'Content-Type': 'image/png',
@@ -80,16 +83,10 @@ export default async function handler(
 	return res.end(screenshot);
 }
 
-function convert(filename: string) {
-	Jimp.read(filename)
-		.then(img => {
-			img
-				.resize(600, 800)
-				.quality(60)
-				.greyscale()
-				.write(filename);
-		})
-		.catch(err => {
-			throw err;
-		});
+async function convert(filename: string) {
+	const img = await Jimp.read(filename);
+	return img
+		.resize(600, 800)
+		.greyscale()
+		.writeAsync(filename);
 }

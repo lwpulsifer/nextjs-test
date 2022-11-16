@@ -1,10 +1,12 @@
-import { getTopTracks } from "../../lib/spotify";
+import { getTopTracks } from "../../../lib/spotify";
+import { NextApiRequest, NextApiResponse } from "next";
 
-const topTracks = async (_, res) => {
+const topTracks = async (req: NextApiRequest, res: NextApiResponse) => {
   const response = await getTopTracks();
   const { items } = await response.json();
 
-  const tracks = items?.slice(0, 10).map((track) => ({
+  const { numTracks } = req.query;
+  const tracks = items?.slice(0, Number(numTracks, 10)).map((track) => ({
     artist: track.artists.map((_artist) => _artist.name).join(", "),
     album: track.album.name,
     songUrl: track.external_urls.spotify,
