@@ -45,7 +45,13 @@ export default async function handler(
 	await page.setViewport({ width: 600, height: 800 });
 	const screenshotUrl = process.env.SCREENSHOT_URL || process.env.NEXT_PUBLIC_VERCEL_URL || process.env.PUBLIC_VERCEL_URL;
 	console.log(screenshotUrl);
+
+	try {
 	await page.goto(`${screenshotUrl}/fun`);
+	}
+	catch (e) {
+		throw `${screenshotUrl}/fun not valid`;
+	}
 
 	// Make sure content has loaded before we take a screenshot
 	await page.waitForSelector('.top-tracks-list');
