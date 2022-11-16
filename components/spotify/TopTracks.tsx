@@ -52,7 +52,7 @@ const TopTracks = () => {
           ))}
           initialItemsToShow={3}
           itemsIncrement={10}
-          additionalClassNames={"p-1 rounded-lg list-decimal min-h-[5rem]"}
+          additionalClassNames={"top-tracks-list p-1 rounded-lg list-decimal min-h-[5rem]"}
           showCollapseButton={false}
         />
       ) : (
