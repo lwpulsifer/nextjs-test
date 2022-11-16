@@ -47,7 +47,7 @@ export default async function handler(
 	console.log(screenshotUrl);
 
 	try {
-	await page.goto(`${screenshotUrl}/fun`);
+		await page.goto(`https://${screenshotUrl}/fun`);
 	}
 	catch (e) {
 		throw `${screenshotUrl}/fun not valid`;
