@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import Cors from 'cors'
 import puppeteer from 'puppeteer';
-import { execFile } from 'child_process';
 import fs from 'fs';
 import Jimp from 'jimp';
 
@@ -39,7 +38,9 @@ export default async function handler(
   const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
     const page = await browser.newPage();
     await page.setViewport({ width: 600, height: 800 });
-    await page.goto(process.env.SCREENSHOT_URL || `${process.env.NEXT_PUBLIC_VERCEL_URL}/fun` || 'https://darksky.net/details/40.7127,-74.0059/2021-1-6/us12/en');
+		const screenshotUrl = process.env.SCREENSHOT_URL || process.env.NEXT_PUBLIC_VERCEL_URL || process.env.PUBLIC_VERCEL_URL;
+		console.log(screenshotUrl);
+    await page.goto(`${screenshotUrl}/fun`);
 
 		// Make sure content has loaded before we take a screenshot
 		await page.waitForSelector('.top-tracks-list');
