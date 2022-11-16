@@ -1,9 +1,25 @@
+import { isDev } from './../../util/IsDev';
 import type { NextApiRequest, NextApiResponse } from 'next'
 import Cors from 'cors'
-import puppeteer from 'puppeteer-core';
 import fs from 'fs';
 import Jimp from 'jimp';
-import chrome from 'chrome-aws-lambda';
+
+let puppeteer;
+let chrome = {
+	args: [],
+	executablePath: '',
+};
+let screenshotUrl;
+
+if (isDev()) {
+	puppeteer = require('puppeteer');
+	screenshotUrl = process.env.SCREENSHOT_URL;
+}
+else {
+	puppeteer = require('puppeteer-core');
+	chrome = require('chrome-aws-lambda');
+	screenshotUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_URL || process.env.PUBLIC_VERCEL_URL}/fun`;
+}
 
 // Initializing the cors middleware
 // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
@@ -43,15 +59,7 @@ export default async function handler(
 	});
 	const page = await browser.newPage();
 	await page.setViewport({ width: 600, height: 800 });
-	const screenshotUrl = process.env.SCREENSHOT_URL || process.env.NEXT_PUBLIC_VERCEL_URL || process.env.PUBLIC_VERCEL_URL;
-	console.log(screenshotUrl);
-
-	try {
-		await page.goto(`https://${screenshotUrl}/fun`);
-	}
-	catch (e) {
-		throw `${screenshotUrl}/fun not valid`;
-	}
+	await page.goto(screenshotUrl);
 
 	// Make sure content has loaded before we take a screenshot
 	await page.waitForSelector('.top-tracks-list');
