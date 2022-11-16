@@ -3,6 +3,7 @@ import Cors from 'cors'
 import puppeteer from 'puppeteer';
 import fs from 'fs';
 import Jimp from 'jimp';
+import chrome from 'chrome-aws-lambda';
 
 // Initializing the cors middleware
 // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
@@ -35,30 +36,34 @@ export default async function handler(
   // Run the middleware
   await runMiddleware(req, res, cors)
 
-  const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
-    const page = await browser.newPage();
-    await page.setViewport({ width: 600, height: 800 });
-		const screenshotUrl = process.env.SCREENSHOT_URL || process.env.NEXT_PUBLIC_VERCEL_URL || process.env.PUBLIC_VERCEL_URL;
-		console.log(screenshotUrl);
-    await page.goto(`${screenshotUrl}/fun`);
+  const browser = await puppeteer.launch({ 
+		args: ['--no-sandbox', '--disable-setuid-sandbox', ...chrome.args] ,
+		executablePath: await chrome.executablePath,
+		headless: true,
+	});
+	const page = await browser.newPage();
+	await page.setViewport({ width: 600, height: 800 });
+	const screenshotUrl = process.env.SCREENSHOT_URL || process.env.NEXT_PUBLIC_VERCEL_URL || process.env.PUBLIC_VERCEL_URL;
+	console.log(screenshotUrl);
+	await page.goto(`${screenshotUrl}/fun`);
 
-		// Make sure content has loaded before we take a screenshot
-		await page.waitForSelector('.top-tracks-list');
+	// Make sure content has loaded before we take a screenshot
+	await page.waitForSelector('.top-tracks-list');
 
-    await page.screenshot({
-      path: '/tmp/screenshot.png',
-    });
+	await page.screenshot({
+		path: '/tmp/screenshot.png',
+	});
 
-    await browser.close();
+	await browser.close();
 
-    await convert('/tmp/screenshot.png');
-    const screenshot = fs.readFileSync('/tmp/screenshot.png');
+	await convert('/tmp/screenshot.png');
+	const screenshot = fs.readFileSync('/tmp/screenshot.png');
 
-    res.writeHead(200, {
-      'Content-Type': 'image/png',
-      'Content-Length': screenshot.length,
-    });
-    return res.end(screenshot);
+	res.writeHead(200, {
+		'Content-Type': 'image/png',
+		'Content-Length': screenshot.length,
+	});
+	return res.end(screenshot);
 }
 
 function convert(filename: string) {
