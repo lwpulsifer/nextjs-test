@@ -14,7 +14,7 @@ const Fun = () => {
         <TopTracks initialItemsToShow={5} itemsIncrement={5} numTracks={5} />
 				<NowPlaying
             additionalClassNames={
-              "ml-2 text-md border border-black rounded-full font-bold bg-highlight"
+              "ml-2 text-md border border-black rounded-full font-bold"
             }
 				/>
       </main>
