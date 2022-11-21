@@ -6,7 +6,7 @@ const topTracks = async (req: NextApiRequest, res: NextApiResponse) => {
   const { items } = await response.json();
 
   const { numTracks } = req.query;
-  const tracks = items?.slice(0, Number(numTracks, 10)).map((track) => ({
+  const tracks = items?.slice(0, Number.parseInt(numTracks, 10)).map((track) => ({
     artist: track.artists.map((_artist) => _artist.name).join(", "),
     album: track.album.name,
     songUrl: track.external_urls.spotify,
