@@ -8,9 +8,6 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "engines": {
-    "node": "20.x"
-  },
   "dependencies": {
     "@supabase/supabase-js": "^1.28.0",
     "@types/react": "^17.0.30",
