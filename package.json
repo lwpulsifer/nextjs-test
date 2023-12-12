@@ -8,6 +8,9 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "engines": {
+    "node": "20.x"
+  },
   "dependencies": {
     "@supabase/supabase-js": "^1.28.0",
     "@types/react": "^17.0.30",
@@ -18,7 +21,6 @@
     "isomorphic-unfetch": "^3.1.0",
     "jimp": "^0.16.2",
     "next": "^11.1.2",
-    "node": "20.x",
     "package.json": "^2.0.1",
     "particles.js": "^2.0.0",
     "puppeteer-core": "10.1.0",
