@@ -15,9 +15,9 @@ const AboutLinks = () => {
       address: "https://realpython.com/team/lwpulsifer/",
     },
     {
-      title: "Resume",
+      title: "LinkedIn",
       address:
-        "https://www.notion.so/Liam-Pulsifer-fb7f675c5e5e4403aa705a42f931a82b",
+        "https://www.linkedin.com/in/liam-pulsifer",
     },
   ];
 
