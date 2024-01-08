@@ -8,6 +8,7 @@ import PostBody from "../../components/posts/PostBody";
 import PostTitle from "../../components/posts/PostTitle";
 import PostFooter from "../../components/posts/PostFooter";
 
+// @ts-ignore: Resolution from node modules, should be able to fix this in ts-config but not sure how.
 import prismTheme from 'prismjs/themes/prism-okaidia.css';
 
 type BlogPostProps = {
