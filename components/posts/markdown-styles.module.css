@@ -28,3 +28,7 @@
 .markdown a {
   @apply hover:underline text-sky-700 hover:text-sky-500;
 }
+
+.markdown code {
+  @apply text-sky-800;
+}

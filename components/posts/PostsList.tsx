@@ -16,7 +16,7 @@ export default function PostsList({ posts }: { posts: Post[] }) {
   const filteredPosts = posts
     .filter((post) => post.data.display)
     .filter(
-      (post) => postFilter === null || hasTagWithPrefix(post, postFilter),
+      (post) => postFilter === "" || hasTagWithPrefix(post, postFilter),
     );
 
   const listDisplay =
@@ -36,7 +36,7 @@ export default function PostsList({ posts }: { posts: Post[] }) {
           "font-thin font-serif flex flex-col justify-center items-center my-2 h-24"
         }
       >
-        {`No post has a tag that begins with "${postFilter}"`}
+        {`No posts`}
       </div>
     );
 

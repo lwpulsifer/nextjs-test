@@ -21,14 +21,14 @@ export default function PageViewsTracker() {
     Fetcher(`/api/log-page-view/${createSitePathKey()}`);
   }, []);
 
-  const { data, error } = useSWR(`/api/page-views/${pageStorageKey}`, { isPaused: () => pageStorageKey === null });
+  const { data, error, isLoading } = useSWR(`/api/page-views/${pageStorageKey}`, { isPaused: () => pageStorageKey === null });
 
   const numPageViews = data?.numPageViews;
 
   let displayContent;
-  if (!numPageViews) {
+  if (isLoading) {
     displayContent = "Loading page views...";
-  } else if (error)  {
+  } else if (error || !data)  {
     displayContent = "Failed to load page views :(";
   } else {
     displayContent = `Page views: ${numPageViews}`;

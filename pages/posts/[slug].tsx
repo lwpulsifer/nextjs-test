@@ -8,6 +8,8 @@ import PostBody from "../../components/posts/PostBody";
 import PostTitle from "../../components/posts/PostTitle";
 import PostFooter from "../../components/posts/PostFooter";
 
+import prismTheme from 'prismjs/themes/prism-okaidia.css';
+
 type BlogPostProps = {
   post: Post;
 };
@@ -24,6 +26,9 @@ function BlogPost({ post }: BlogPostProps) {
         <title>
           {post ? `${postData.title} — ${postData.author}` : "Blog Post"}
         </title>
+        <style jsx global>  
+          {prismTheme} 
+        </style>
       </Head>
       <BaseCard additionalClassNames={"font-serif font-thin"}>
         <PostTitle title={postData.title} />

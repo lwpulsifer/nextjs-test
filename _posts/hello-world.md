@@ -5,7 +5,7 @@ desc: "My very first blog post—a manifesto of sorts (is that term too loaded?)
 date: 2021/12/1
 author: Liam Pulsifer
 tags: writing,personal
-display: true
+display: false
 ---
 
 Hi! Welcome to the very first edition of my personal blog (some scattered [blogging from India](https://indoreadventures.wordpress.com/) in 2015-2016 not included). If you've made it here, you hopefully already know who I am and what I'm about, but if not, check out the [home page](/) of this site.
