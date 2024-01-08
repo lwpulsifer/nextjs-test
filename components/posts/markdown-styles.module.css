@@ -6,7 +6,7 @@
 .markdown ul,
 .markdown ol,
 .markdown blockquote {
-  @apply my-3;
+  @apply my-4;
 }
 
 .markdown h1 {
@@ -30,5 +30,5 @@
 }
 
 .markdown code {
-  @apply text-sky-800;
+  @apply text-sky-800; 
 }
