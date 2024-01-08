@@ -82,11 +82,11 @@ const particlesConfig: RecursivePartial<IOptions> = {
 type ParticlesBackgroundProps = BaseComponentProps;
 
 const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({
-  additionalClassNames = "",
+  className = "",
 }) => {
   return (
     <div
-      className={`${joinClasses(additionalClassNames)} absolute h-full w-full`}
+      className={`${joinClasses(className)} absolute h-full w-full`}
     >
       <Particles
         id="tsparticles"

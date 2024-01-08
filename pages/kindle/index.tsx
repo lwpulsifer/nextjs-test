@@ -13,7 +13,7 @@ const Fun = () => {
 				<h2 className="text-3xl text-header font-bold">{new Date().toLocaleTimeString(globalThis?.navigator?.language, {hour: '2-digit', minute:'2-digit'})}</h2>
         <TopTracks initialItemsToShow={5} itemsIncrement={5} numTracks={5} />
 				<NowPlaying
-            additionalClassNames={
+            className={
               "ml-2 text-md border border-black rounded-full font-bold"
             }
 				/>

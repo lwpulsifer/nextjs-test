@@ -16,12 +16,18 @@ module.exports = {
     extend: {},
     colors: {
       ...colors,
-      background: colors.sky[900],
-      header: colors.sky[200],
-      link: colors.sky[500],
-      highlight: colors.blue[200],
-      highlightHeader: colors.gray[900],
-      offset: colors.sky[600],
+    
+      background: colors.gray[50],
+    
+      accentBackground: colors.gray[100], 
+    
+      header: colors.gray[900],
+    
+      highlight: colors.blue[600],
+    
+      highlightHeader: colors.blue[700],
+    
+      offset: colors.blue[500],
     },
   },
   variants: {

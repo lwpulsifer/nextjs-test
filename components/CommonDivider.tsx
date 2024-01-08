@@ -4,12 +4,12 @@ import { joinClasses } from "../util/ClassNames";
 type commonDividerProps = BaseComponentProps;
 
 const CommonDivider = ({
-  additionalClassNames = "bg-link",
+  className = "bg-link",
 }: commonDividerProps) => {
   return (
     <div
       className={`${joinClasses(
-        additionalClassNames,
+        className,
       )} h-0.5 w-full rounded-full bg-opacity-30`}
     />
   );

@@ -12,7 +12,7 @@ type RotatingComponentsProps = BaseComponentProps & {
 
 const RotatingComponents: React.FC<RotatingComponentsProps> = ({
   children,
-  additionalClassNames = "",
+  className = "",
   rotationInterval = ROTATION_INTERVAL_DEFAULT_MS,
   autoMove = true,
 }) => {
@@ -29,16 +29,17 @@ const RotatingComponents: React.FC<RotatingComponentsProps> = ({
 
   useInterval(incrementCurrentChild, autoMove ? rotationInterval : null);
 
-  const className = joinClasses(
-    joinClasses(additionalClassNames),
-    "flex justify-center items-center",
-    {
-      "cursor-pointer": nonNullChildren.length > 1,
-    },
-  );
-
   return (
-    <div className={className} onClick={incrementCurrentChild}>
+    <div 
+    className={joinClasses(
+      joinClasses(className),
+      "flex justify-center items-center",
+      {
+        "cursor-pointer": nonNullChildren.length > 1,
+      },
+    )} 
+    onClick={incrementCurrentChild}
+    >
       {nonNullChildren[currentChild]}
     </div>
   );
