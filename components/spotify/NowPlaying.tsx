@@ -1,7 +1,7 @@
 import React from "react";
 import useSWR from "swr";
 import fetcher from "../../lib/fetch/fetcher";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { BaseComponentProps } from "../../types/BaseComponent";
 import { joinClasses } from "../../util/ClassNames";
 
@@ -45,7 +45,10 @@ const NowPlaying = ({
           layout={"fixed"}
           className={"h-10 w-10"}
           alt={"Spotify logo"}
-        />
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} />
       )}
       {nowPlayingElement}
     </div>

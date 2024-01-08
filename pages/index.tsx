@@ -2,7 +2,7 @@ import React from "react";
 import BaseCard from "../components/BaseCard";
 import BasePage from "../components/BasePage";
 import Timeline from "../components/timeline/Timeline";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 const Home = () => {
   return (
@@ -46,7 +46,10 @@ const Home = () => {
                 width={192}
                 height={208}
                 alt={"Me"}
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
             </div>
           </div>
         </BaseCard>

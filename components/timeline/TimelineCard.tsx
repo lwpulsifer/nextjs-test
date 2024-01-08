@@ -1,6 +1,6 @@
 import CommonDivider from "../CommonDivider";
 import { TimelineEvent } from "./Timeline";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import RotatingComponents from "../util/RotatingComponents";
 
 type timelineCardProps = TimelineEvent & {
@@ -39,7 +39,10 @@ const TimelineCard: React.FC<timelineCardProps> = ({
                 width={20}
                 height={20}
                 alt={"Right arrow"}
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
             ) : null}
           </div>
           {end ? (
@@ -49,7 +52,10 @@ const TimelineCard: React.FC<timelineCardProps> = ({
                 width={20}
                 height={20}
                 alt={"Left arrow"}
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
               {`${end?.toLocaleDateString()}`}
             </div>
           ) : null}

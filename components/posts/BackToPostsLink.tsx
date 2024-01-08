@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export default function BackToPostsLink() {
   return (
@@ -10,7 +10,10 @@ export default function BackToPostsLink() {
           width={20}
           height={20}
           alt="Back to posts"
-        />
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} />
         Back to posts
       </span>
     </Link>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BaseComponentProps } from "../../types/BaseComponent";
 import { joinClasses } from "../../util/ClassNames";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 type ExpandableListProps = BaseComponentProps & {
   items: React.ReactElement[];
@@ -42,7 +42,10 @@ const ExpandableList: React.FC<ExpandableListProps> = ({
         height={arrowHeight}
         width={arrowWidth}
         alt="Down arrow"
-      />
+        style={{
+          maxWidth: "100%",
+          height: "auto"
+        }} />
     </button>
   );
 
@@ -59,7 +62,10 @@ const ExpandableList: React.FC<ExpandableListProps> = ({
         height={arrowHeight}
         width={arrowWidth}
         alt="Up arrow"
-      />
+        style={{
+          maxWidth: "100%",
+          height: "auto"
+        }} />
     </button>
   );
 

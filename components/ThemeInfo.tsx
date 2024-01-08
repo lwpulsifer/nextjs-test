@@ -2,7 +2,7 @@ import React from "react";
 import { BaseComponentProps } from "../types/BaseComponent";
 import { joinClasses } from "../util/ClassNames";
 import useHoverState from "../hooks/useHoverState";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 type ThemeInfoProps = BaseComponentProps;
 
@@ -29,7 +29,10 @@ const ThemeInfo: React.FC<ThemeInfoProps> = ({ additionalClassNames = "" }) => {
               height={15}
               width={15}
               alt="Info icon"
-            />
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }} />
           </div>
         )}
       </div>
