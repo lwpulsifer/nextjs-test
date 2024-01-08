@@ -2,7 +2,7 @@ import React from "react";
 import BaseCard from "../components/BaseCard";
 import BasePage from "../components/BasePage";
 import Timeline from "../components/timeline/Timeline";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 const Home = () => {
   return (

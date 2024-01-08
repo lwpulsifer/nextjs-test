@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BaseComponentProps } from "../../types/BaseComponent";
 import { joinClasses } from "../../util/ClassNames";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 type ExpandableListProps = BaseComponentProps & {
   items: React.ReactElement[];

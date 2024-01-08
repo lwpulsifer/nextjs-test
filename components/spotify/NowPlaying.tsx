@@ -1,7 +1,7 @@
 import React from "react";
 import useSWR from "swr";
 import fetcher from "../../lib/fetch/fetcher";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { BaseComponentProps } from "../../types/BaseComponent";
 import { joinClasses } from "../../util/ClassNames";
 

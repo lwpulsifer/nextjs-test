@@ -2,7 +2,7 @@ import React from "react";
 import { BaseComponentProps } from "../types/BaseComponent";
 import { joinClasses } from "../util/ClassNames";
 import useHoverState from "../hooks/useHoverState";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 type ThemeInfoProps = BaseComponentProps;
 

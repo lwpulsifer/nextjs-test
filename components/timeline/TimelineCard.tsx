@@ -1,6 +1,6 @@
 import CommonDivider from "../CommonDivider";
 import { TimelineEvent } from "./Timeline";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import RotatingComponents from "../util/RotatingComponents";
 
 type timelineCardProps = TimelineEvent & {
