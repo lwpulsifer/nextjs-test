@@ -8,7 +8,7 @@ import PostBody from "../../components/posts/PostBody";
 import PostTitle from "../../components/posts/PostTitle";
 import PostFooter from "../../components/posts/PostFooter";
 
-import prismTheme from 'prismjs/themes/prism-okaidia.css';
+require('prismjs/themes/prism-okaidia.css');
 
 type BlogPostProps = {
   post: Post;
