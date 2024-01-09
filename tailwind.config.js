@@ -28,6 +28,8 @@ module.exports = {
       highlightHeader: colors.blue[700],
     
       offset: colors.blue[500],
+
+      link: colors.blue[500],
     },
   },
   variants: {
