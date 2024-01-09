@@ -42,7 +42,6 @@ const NowPlaying = ({
           src={"/spotify.png"}
           height={32}
           width={32}
-          layout={"fixed"}
           className={"h-10 w-10"}
           alt={"Spotify logo"}
           style={{

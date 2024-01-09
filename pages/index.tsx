@@ -9,7 +9,7 @@ const Home = () => {
     <BasePage>
       <div className={"flex flex-col items-center justify-center w-full mt-4"}>
         <BaseCard>
-          <div className="flex items-center justify-center">
+          <div className="flex md:flex-row flex-col items-center justify-center">
             <div className="flex gap-1 flex-col w-3/4 items-center">
               <h1
                 className={
