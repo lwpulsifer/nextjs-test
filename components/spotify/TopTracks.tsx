@@ -3,6 +3,7 @@ import Track from "./Track";
 import useSWR from "swr";
 import fetcher from "../../lib/fetch/fetcher";
 import ExpandableList from "../util/ExpandableList";
+import BaseCard from "../BaseCard";
 
 const groupBy = <T,>(
   arr: T[],
@@ -43,7 +44,7 @@ const TopTracks = ({ initialItemsToShow = 3, itemsIncrement = 10, numTracks = 10
   ).find(([_, tracks]) => tracks.length / 10 > 0.5)?.[0];
 
   return (
-    <aside className={"flex flex-col p-2 rounded-3xl bg-highlight w-full"}>
+    <BaseCard className={"flex flex-col p-2 rounded-3xl w-full"}>
       <span
         className={
           "flex items-center justify-center text-2xl font-bold text-highlightHeader m-2"
@@ -54,11 +55,11 @@ const TopTracks = ({ initialItemsToShow = 3, itemsIncrement = 10, numTracks = 10
       {tracks ? (
         <ExpandableList
           items={tracks.map((track) => (
-            <Track {...track} key={track.id} additionalClassNames={"w-full"} />
+            <Track {...track} key={track.id} className={"w-full"} />
           ))}
           initialItemsToShow={initialItemsToShow}
           itemsIncrement={itemsIncrement}
-          additionalClassNames={"top-tracks-list p-1 rounded-lg list-decimal min-h-[5rem]"}
+          className={"top-tracks-list p-1 rounded-lg list-decimal min-h-[5rem] w-full"}
           showCollapseButton={false}
         />
       ) : (
@@ -67,13 +68,13 @@ const TopTracks = ({ initialItemsToShow = 3, itemsIncrement = 10, numTracks = 10
         </div>
       )}
       {artistWithMoreThanHalf ? (
-        <div className="text-highlightHeader font-serif text-md text-center mt-3">
+        <div className="font-serif text-md text-center mt-3">
           Yeah, I know it&apos;s embarrassing to have more than half of my top
           ten be from <span className="italic">{artistWithMoreThanHalf}</span>{" "}
           🙃
         </div>
       ) : null}
-    </aside>
+    </BaseCard>
   );
 };
 

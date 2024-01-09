@@ -33,7 +33,7 @@ const Home = () => {
                 >
                   IXL Learning
                 </a>
-                , you can often find me reading, playing tennis, or surfing
+                , you can often find me reading, playing tennis, or riding my bike
                 around the San Francisco bay area. I&apos;m always looking for
                 new connections, so don&apos;t be shy about getting in touch,
                 and please feel free to peruse the various links on this site to
@@ -52,9 +52,6 @@ const Home = () => {
                 }} />
             </div>
           </div>
-        </BaseCard>
-        <BaseCard>
-          <Timeline />
         </BaseCard>
       </div>
     </BasePage>

@@ -28,8 +28,8 @@ export default function PageViewsTracker() {
   let displayContent;
   if (isLoading) {
     displayContent = "Loading page views...";
-  } else if (error || !data)  {
-    displayContent = "Failed to load page views :(";
+  } else if (!data || error)  {
+    displayContent = "";
   } else {
     displayContent = `Page views: ${numPageViews}`;
   }
@@ -37,7 +37,7 @@ export default function PageViewsTracker() {
   return (
     <section
       className={
-        "m-3 bg-offset rounded-md px-5 py-2 flex justify-center items-center"
+        "m-3 rounded-md px-5 py-2 flex justify-center items-center text-sm font-extralight"
       }
     >
       {displayContent}

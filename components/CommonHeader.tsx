@@ -27,7 +27,7 @@ const CommonHeader = () => {
           }
         >
           <NowPlaying
-            additionalClassNames={
+            className={
               "ml-2 text-md border border-black rounded-full font-bold bg-background"
             }
           />
@@ -43,7 +43,7 @@ const CommonHeader = () => {
               title={title}
               key={title}
               header={true}
-              additionalClassNames={"m-2"}
+              className={"m-2"}
             />
           ))}
         </div>

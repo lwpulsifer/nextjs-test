@@ -28,7 +28,7 @@ const TimelineCard: React.FC<timelineCardProps> = ({
         }
       >
         <RotatingComponents
-          additionalClassNames={yearBlockClassName}
+          className={yearBlockClassName}
           autoMove={false}
         >
           <div className="flex items-center">

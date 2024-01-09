@@ -16,7 +16,7 @@ const ExpandableList: React.FC<ExpandableListProps> = ({
   items,
   initialItemsToShow,
   itemsIncrement,
-  additionalClassNames,
+  className,
   showLessButton = true,
   showCollapseButton = true,
   arrowSize = 15,
@@ -85,7 +85,7 @@ const ExpandableList: React.FC<ExpandableListProps> = ({
     <>
       <ol
         className={`${joinClasses(
-          additionalClassNames,
+          className,
         )} flex flex-col m-1 items-center justify-center`}
       >
         {items.slice(0, numItemsToShow)}

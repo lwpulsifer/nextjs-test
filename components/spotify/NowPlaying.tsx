@@ -10,7 +10,7 @@ type NowPlayingProps = BaseComponentProps & {
 };
 
 const NowPlaying = ({
-  additionalClassNames = "",
+  className = "",
   includeImage = true,
 }: NowPlayingProps) => {
   const { data } = useSWR("/api/now-playing", fetcher);
@@ -34,7 +34,7 @@ const NowPlaying = ({
   return (
     <div
       className={`${joinClasses(
-        additionalClassNames,
+        className,
       )} flex flex-row p-3 items-center`}
     >
       {includeImage && (

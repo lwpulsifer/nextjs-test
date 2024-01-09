@@ -31,7 +31,7 @@ function BlogPost({ post }: BlogPostProps) {
           {prismTheme} 
         </style>
       </Head>
-      <BaseCard additionalClassNames={"font-serif font-thin"}>
+      <BaseCard className={"font-serif font-thin"}>
         <PostTitle title={postData.title} />
         <section className="w-11/12 p-3">
           <PostBody post={post} />

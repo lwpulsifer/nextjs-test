@@ -13,16 +13,16 @@ const MyLink: React.FC<MyLinkProps> = ({
   address,
   title,
   header = false,
-  additionalClassNames = "",
+  className = "",
 }) => {
-  const className = joinClasses(
-    joinClasses(additionalClassNames),
+  const fullClassName = joinClasses(
+    joinClasses(className),
     header ? "text-header font-bold" : "text-link",
     "hover:underline inline",
   );
 
   return (
-    <div className={className}>
+    <div className={fullClassName}>
       <Link href={address}>{title}</Link>
     </div>
   );

@@ -15,17 +15,15 @@ const Track: React.FC<trackProps> = ({
   album,
   songUrl,
   title,
-  additionalClassNames,
+  className,
 }) => {
   return (
     <li
-      className={`${joinClasses(
-        additionalClassNames,
-      )} flex border-2 m-2 p-2 rounded border-link`}
+      className={joinClasses(className, 'flex border-2 m-2 p-2 rounded')}
     >
       <div className={"flex flex-col w-full sm:w-3/4"}>
         <div className={"font-bold"}>
-          <a href={songUrl} target="_blank" rel="noopener noreferrer">
+          <a href={songUrl} target="_blank" rel="noopener noreferrer" className="text-highlight underline">
             {title}
           </a>
         </div>
