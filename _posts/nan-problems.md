@@ -205,13 +205,13 @@ simple, clear, and doesn't require making a major update to the contract of a ut
 
 So after much ado, the sum total of the changeset here became:
 - An update to the documentation of `removeItem` warning people not to expect it to work on `NaN`
-- Replacing existing calls to it with `NaN` with a more specific approach that removes `NaN` and nothing else.
+- Replacing existing calls to it using `NaN` with a more specific approach that removes `NaN` and nothing else.
 
 ## My takeaways?
 - Avoid the temptation to make utility functions handle each and every potential edge case.
   - Often it's simpler and more maintainable to make a targeted function that does exactly what you want.
-- When debugging, it's often better in the long run to ask "Do I really need to do this?" rather than "How do I fix this immediately?".
-- When a built-in JS function has a strange edge case, it's worth digging in to figure out *why*,
-- Our frontend utility functions should probably have better unit tests :P.
+- When debugging, it can be better in the long run to ask "Do I really need to do this?" rather than "How do I do this?".
+- When a built-in JS function has a strange edge case, it's worth digging in to figure out *why*.
+- Our frontend utility functions should definitely have better unit tests :P.
 
 What do you think?
