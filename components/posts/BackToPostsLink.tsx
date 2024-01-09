@@ -14,7 +14,9 @@ export default function BackToPostsLink() {
             maxWidth: "100%",
             height: "auto"
           }} />
-        Back to posts
+        <span className="sm:visible hidden">
+          Back to posts
+        </span>
       </span>
     </Link>
   );

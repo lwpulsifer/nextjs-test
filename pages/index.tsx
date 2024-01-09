@@ -1,7 +1,6 @@
 import React from "react";
 import BaseCard from "../components/BaseCard";
 import BasePage from "../components/BasePage";
-import Timeline from "../components/timeline/Timeline";
 import Image from "next/image";
 
 const Home = () => {
@@ -9,8 +8,8 @@ const Home = () => {
     <BasePage>
       <div className={"flex flex-col items-center justify-center w-full mt-4"}>
         <BaseCard>
-          <div className="flex md:flex-row flex-col items-center justify-center">
-            <div className="flex gap-1 flex-col w-3/4 items-center">
+          <div className="flex flex-col md:flex-row items-center justify-center p-3">
+            <div className="flex gap-1 flex-col w-full md:w-3/4 items-center">
               <h1
                 className={
                   "text-4xl font-medium text-highlightHeader text-center"

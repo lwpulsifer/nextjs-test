@@ -42,20 +42,30 @@ export default function PostsList({ posts }: { posts: Post[] }) {
 
   return (
     <section className="w-full">
-      <div className="w-full mb-3 py-3 px-8 bg-sky-300 flex items-center justify-between rounded-t-2xl">
+      <div className="w-full mb-3 py-3 px-8 bg-sky-300 flex md:flex-row flex-col items-center justify-between rounded-t-2xl gap-2">
         <h1 className="font-bold text-2xl">Blog Posts</h1>
         <span>
-          <label htmlFor={""} className={"mr-2 font-serif"}>
+          <label htmlFor={""} className={"mr-2 font-serif hidden"}>
             Filter posts by tag
           </label>
           <input
             type={"search"}
+            id={'tag-search'}
+            list={'tag-options'}
             value={postFilter}
             onChange={(e) => setPostFilter(e.target.value)}
             className={
               "py-1 px-2 rounded-md focus:border-non focus:outline-none bg-sky-200 focus:shadow-md"
             }
+            placeholder="Filter posts by tag"
           />
+          <datalist id={'tag-options'}>
+            {
+              posts.flatMap(post => post.data.tags.split(",")).map(tag => 
+                <option key={tag} value={tag} />
+              )
+            }
+          </datalist>
         </span>
       </div>
       {listDisplay}

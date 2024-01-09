@@ -20,10 +20,10 @@ const CommonHeader = () => {
 
   return (
     <nav className={"flex items-center justify-center my-2 w-full"}>
-      <div className={"flex flex-col md:flex-row w-5/6 lg:w-2/3 xl:w-1/2"}>
+      <div className={"flex flex-col-reverse md:flex-row w-5/6 max-w-screen-lg justify-between items-center gap-2"}>
         <div
           className={
-            "flex w-full lg:w-2/3 justify-center items-center lg:justify-start"
+            "hidden md:flex justify-center items-center lg:justify-start"
           }
         >
           <NowPlaying
@@ -34,7 +34,7 @@ const CommonHeader = () => {
         </div>
         <div
           className={
-            "flex w-full xl:w-1/3 items-center justify-center lg:justify-end"
+            "flex items-center justify-center lg:justify-end bg-accentBackground rounded-lg p-3"
           }
         >
           {links.map(({ path, title }) => (
