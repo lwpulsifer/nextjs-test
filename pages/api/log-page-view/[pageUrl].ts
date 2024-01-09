@@ -16,21 +16,21 @@ export default async function logPageView(
     }
 
     if (!isDev()) {
-        const { status } = await supabase.from<PageView>("site_views").insert({
-          user_ip: req.headers.host,
-          url: pageUrl,
+      const { status } = await supabase.from<PageView>("site_views").insert({
+        user_ip: req.headers.host,
+        url: pageUrl,
+      });
+  
+      if (status !== 201) {
+        return res.status(status).json({
+          error: "Failed to add page view",
         });
-    
-        if (status !== 201) {
-          return res.status(status).json({
-            error: "Failed to add page view",
-          });
-        }
-        else {
-            return res.status(status).json({
-                data: `Logged page view for ${pageUrl}`,
-            })
-        }
       }
+      else {
+          return res.status(status).json({
+              data: `Logged page view for ${pageUrl}`,
+          })
+      }
+    }
     return res.status(201).json({ data: `No page view logged due to dev mode.` } );
 }

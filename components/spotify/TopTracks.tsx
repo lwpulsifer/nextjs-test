@@ -1,7 +1,7 @@
 import React from "react";
 import Track from "./Track";
 import useSWR from "swr";
-import fetcher from "../../lib/fetch/fetcher";
+import Fetcher from "../../lib/fetch/fetcher";
 import ExpandableList from "../util/ExpandableList";
 import BaseCard from "../BaseCard";
 
@@ -36,7 +36,7 @@ type TopTracksProps = {
 }
 
 const TopTracks = ({ initialItemsToShow = 3, itemsIncrement = 10, numTracks = 10 }: TopTracksProps) => {
-  const { data, error } = useSWR(`api/top-tracks/${numTracks}`, fetcher);
+  const { data, error } = useSWR(`api/top-tracks/${numTracks}`, Fetcher);
 
   const tracks: track[] = data?.tracks;
   const artistWithMoreThanHalf = Object.entries(

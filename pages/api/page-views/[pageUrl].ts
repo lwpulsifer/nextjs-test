@@ -18,7 +18,6 @@ const pageViews = async (
   res: NextApiResponse<PageViewsResponse>,
 ) => {
   const pageUrl = req.query.pageUrl ? req.query.pageUrl : "/";
-
   if (typeof pageUrl !== "string") {
     return res.status(500).json({
       error: "Page url must be a string",
