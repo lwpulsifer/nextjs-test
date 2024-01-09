@@ -55,7 +55,7 @@ export default function PostsList({ posts }: { posts: Post[] }) {
             value={postFilter}
             onChange={(e) => setPostFilter(e.target.value)}
             className={
-              "py-1 px-2 rounded-md focus:border-non focus:outline-none bg-sky-200 focus:shadow-md"
+              "py-1 px-2 rounded-md focus:border-none focus:outline-none bg-sky-200 focus:shadow-md"
             }
             placeholder="Filter posts by tag"
           />
