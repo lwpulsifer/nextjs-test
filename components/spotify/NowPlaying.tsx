@@ -1,6 +1,6 @@
 import React from "react";
 import useSWR from "swr";
-import fetcher from "../../lib/fetch/fetcher";
+import Fetcher from "../../lib/fetch/fetcher";
 import Image from "next/image";
 import { BaseComponentProps } from "../../types/BaseComponent";
 import { joinClasses } from "../../util/ClassNames";
@@ -13,7 +13,7 @@ const NowPlaying = ({
   className = "",
   includeImage = true,
 }: NowPlayingProps) => {
-  const { data } = useSWR("/api/now-playing", fetcher);
+  const { data } = useSWR("/api/now-playing", Fetcher);
 
   const nowPlayingElement = data?.isPlaying ? (
     <>

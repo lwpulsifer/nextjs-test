@@ -1,37 +1,34 @@
 import Fetcher from "../lib/fetch/fetcher";
 import { useEffect, useState } from "react";
 import useSWR from "swr";
+import { usePathname } from 'next/navigation'
 
 /**
  * Creates a key from a site path.
  * Example: /home => "home", /home/about => "home|about", / => ""
  */
-const createSitePathKey = () =>
-  encodeURI(window.location.pathname).split("/").slice(1).join("|");
+const createSitePathKey = (pathName: string) =>
+  encodeURI(pathName).split("/").slice(1).join("|");
 
 export default function PageViewsTracker() {
-  const [pageStorageKey, setPageStorageKey] = useState(null);
-
-  useEffect(() => {
-    setPageStorageKey(createSitePathKey());
-  }, [])
+  const pathName = usePathname();
 
   // Log a page hit and return the number of page views for this site path.
   useEffect(() => {
-    Fetcher(`/api/log-page-view/${createSitePathKey()}`);
-  }, []);
+    Fetcher(`/api/log-page-view/${createSitePathKey(pathName)}`);
+  }, [pathName]);
 
-  const { data, error, isLoading } = useSWR(`/api/page-views/${pageStorageKey}`, { isPaused: () => pageStorageKey === null });
+  const { data, error, isLoading } = useSWR(`/api/page-views/${createSitePathKey(pathName)}`, Fetcher);
 
   const numPageViews = data?.numPageViews;
 
   let displayContent;
   if (isLoading) {
-    displayContent = "Loading page views...";
+    displayContent = "...";
   } else if (!data || error)  {
     displayContent = "";
   } else {
-    displayContent = `Page views: ${numPageViews}`;
+    displayContent = `${numPageViews} views`;
   }
 
   return (
