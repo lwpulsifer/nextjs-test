@@ -11,19 +11,12 @@
   "dependencies": {
     "@supabase/supabase-js": "1.28.0",
     "@types/react": "^17.0.30",
-    "child_process": "^1.0.2",
-    "chrome-aws-lambda": "^10.1.0",
-    "cors": "^2.8.5",
     "gray-matter": "^4.0.3",
     "isomorphic-unfetch": "^3.1.0",
-    "jimp": "^0.16.2",
     "next": "14.0.4",
     "package.json": "^2.0.1",
-    "particles.js": "^2.0.0",
-    "puppeteer-core": "10.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-tsparticles": "^1.36.0",
     "remark": "^14.0.2",
     "remark-html": "^15.0.1",
     "swr": "2.2.4"
@@ -35,7 +28,6 @@
     "eslint-config-prettier": "9.1.0",
     "postcss": "8.4.33",
     "prettier": "3.1.1",
-    "puppeteer": "^19.2.2",
     "tailwindcss": "3.4.1"
   }
 }
