@@ -6,13 +6,13 @@ import Image from "next/image";
 
 type ThemeInfoProps = BaseComponentProps;
 
-const ThemeInfo: React.FC<ThemeInfoProps> = ({ additionalClassNames = "" }) => {
+const ThemeInfo: React.FC<ThemeInfoProps> = ({ className = "" }) => {
   const { isHovered, eventListeners } = useHoverState();
 
   return (
     <section
       className={`${joinClasses(
-        additionalClassNames,
+        className,
       )} text-sm font-bold flex hover:cursor-text`}
       {...eventListeners}
     >

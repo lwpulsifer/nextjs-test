@@ -21,15 +21,15 @@ export default function PageViewsTracker() {
     Fetcher(`/api/log-page-view/${createSitePathKey()}`);
   }, []);
 
-  const { data, error } = useSWR(`/api/page-views/${pageStorageKey}`, { isPaused: () => pageStorageKey === null });
+  const { data, error, isLoading } = useSWR(`/api/page-views/${pageStorageKey}`, { isPaused: () => pageStorageKey === null });
 
   const numPageViews = data?.numPageViews;
 
   let displayContent;
-  if (!numPageViews) {
+  if (isLoading) {
     displayContent = "Loading page views...";
-  } else if (error)  {
-    displayContent = "Failed to load page views :(";
+  } else if (!data || error)  {
+    displayContent = "";
   } else {
     displayContent = `Page views: ${numPageViews}`;
   }
@@ -37,7 +37,7 @@ export default function PageViewsTracker() {
   return (
     <section
       className={
-        "m-3 bg-offset rounded-md px-5 py-2 flex justify-center items-center"
+        "m-3 rounded-md px-5 py-2 flex justify-center items-center text-sm font-extralight"
       }
     >
       {displayContent}

@@ -3,6 +3,7 @@ import YearCard from "./YearCard";
 import { sorted } from "../../util/ArrayUtils";
 import MyLink from "../util/MyLink";
 import ExpandableList from "../util/ExpandableList";
+import BaseCard from "../BaseCard";
 
 export interface TimelineEvent {
   beginning: Date;
@@ -124,9 +125,9 @@ export default function Timeline() {
   const displayEvents = sortedYears.map((year) => timelineEvents[year]).flat();
 
   return (
-    <section
+    <BaseCard
       className={
-        "flex flex-col p-3 items-center justify-center bg-highlight rounded-2xl"
+        "flex flex-col p-3 items-center justify-center rounded-2xl"
       }
     >
       <h1 className="text-xl font-bold">Personal timeline</h1>
@@ -135,6 +136,6 @@ export default function Timeline() {
         initialItemsToShow={5}
         itemsIncrement={3}
       />
-    </section>
+    </BaseCard>
   );
 }
