@@ -1,4 +1,4 @@
-import Fetcher from "../lib/fetch/fetcher";
+import Fetcher from "../../lib/fetch/fetcher";
 import { useEffect, useState } from "react";
 import useSWR from "swr";
 import { usePathname } from 'next/navigation'

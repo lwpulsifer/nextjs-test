@@ -4,22 +4,7 @@ import useSWR from "swr";
 import Fetcher from "../../lib/fetch/fetcher";
 import ExpandableList from "../util/ExpandableList";
 import BaseCard from "../BaseCard";
-
-const groupBy = <T,>(
-  arr: T[],
-  groupingFunction: (groupItem: T) => string,
-): { [key: string]: T[] } => {
-  const groups = {};
-  arr?.forEach((item) => {
-    const groupKey = groupingFunction(item);
-    if (groups[groupKey]) {
-      groups[groupKey].push(item);
-    } else {
-      groups[groupKey] = [item];
-    }
-  });
-  return groups;
-};
+import { groupBy } from "../../util/ArrayUtils";
 
 type track = {
   artist: string;

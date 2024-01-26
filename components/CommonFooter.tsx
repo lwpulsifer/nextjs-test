@@ -1,5 +1,5 @@
 import AboutLinks from "./AboutLinks";
-import PageViewsTracker from "./PageViewsTracker";
+import PageViewsTracker from "./pageViews/PageViewsTracker";
 
 type commonFooterProps = {
   isHomePage: boolean;
