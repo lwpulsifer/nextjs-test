@@ -1,7 +1,7 @@
+import Image from "next/image";
 import React, { useState } from "react";
 import { BaseComponentProps } from "../../types/BaseComponent";
 import { joinClasses } from "../../util/ClassNames";
-import Image from "next/image";
 
 type ExpandableListProps = BaseComponentProps & {
   items: React.ReactElement[];
@@ -21,15 +21,12 @@ const ExpandableList: React.FC<ExpandableListProps> = ({
   showCollapseButton = true,
   arrowSize = 15,
 }) => {
-  const [numItemsToShow, setNumItemsToShow] =
-    useState<number>(initialItemsToShow);
+  const [numItemsToShow, setNumItemsToShow] = useState<number>(initialItemsToShow);
 
   const sharedButtonStyles =
     "rounded-full text-link py-1 px-2 disabled:opacity-30 disabled:cursor-auto";
   const { arrowWidth, arrowHeight } =
-    typeof arrowSize === "number"
-      ? { arrowWidth: arrowSize, arrowHeight: arrowSize }
-      : arrowSize;
+    typeof arrowSize === "number" ? { arrowWidth: arrowSize, arrowHeight: arrowSize } : arrowSize;
 
   const moreButton = (
     <button
@@ -44,8 +41,9 @@ const ExpandableList: React.FC<ExpandableListProps> = ({
         alt="Down arrow"
         style={{
           maxWidth: "100%",
-          height: "auto"
-        }} />
+          height: "auto",
+        }}
+      />
     </button>
   );
 
@@ -53,9 +51,7 @@ const ExpandableList: React.FC<ExpandableListProps> = ({
     <button
       onClick={() => setNumItemsToShow((numYears) => numYears - itemsIncrement)}
       className={`${sharedButtonStyles}`}
-      disabled={
-        !showLessButton || numItemsToShow < initialItemsToShow + itemsIncrement
-      }
+      disabled={!showLessButton || numItemsToShow < initialItemsToShow + itemsIncrement}
     >
       <Image
         src={"/up-arrow.svg"}
@@ -64,8 +60,9 @@ const ExpandableList: React.FC<ExpandableListProps> = ({
         alt="Up arrow"
         style={{
           maxWidth: "100%",
-          height: "auto"
-        }} />
+          height: "auto",
+        }}
+      />
     </button>
   );
 
@@ -83,24 +80,20 @@ const ExpandableList: React.FC<ExpandableListProps> = ({
 
   return (
     <>
-      <ol
-        className={`${joinClasses(
-          className,
-        )} flex flex-col m-1 items-center justify-center`}
-      >
+      <ol className={`${joinClasses(className)} flex flex-col m-1 items-center justify-center`}>
         {items.slice(0, numItemsToShow)}
       </ol>
       <div className="w-full flex">
-        {!(numItemsToShow < initialItemsToShow + itemsIncrement && numItemsToShow >= items.length) &&
+        {!(
+          numItemsToShow < initialItemsToShow + itemsIncrement && numItemsToShow >= items.length
+        ) && (
           <div className="flex w-full justify-center">
             {fewerButton}
             {moreButton}
           </div>
-        }
+        )}
         <div className="absolute">
-          {numItemsToShow > initialItemsToShow && showCollapseButton
-            ? collapseButton
-            : null}
+          {numItemsToShow > initialItemsToShow && showCollapseButton ? collapseButton : null}
         </div>
       </div>
     </>

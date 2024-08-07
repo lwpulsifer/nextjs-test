@@ -1,7 +1,7 @@
+import Image from "next/image";
 import React from "react";
 import useSWR from "swr";
 import Fetcher from "../../lib/fetch/fetcher";
-import Image from "next/image";
 import { BaseComponentProps } from "../../types/BaseComponent";
 import { joinClasses } from "../../util/ClassNames";
 
@@ -9,10 +9,7 @@ type NowPlayingProps = BaseComponentProps & {
   includeImage?: boolean;
 };
 
-const NowPlaying = ({
-  className = "",
-  includeImage = true,
-}: NowPlayingProps) => {
+const NowPlaying = ({ className = "", includeImage = true }: NowPlayingProps) => {
   const { data } = useSWR("/api/now-playing", Fetcher);
 
   const nowPlayingElement = data?.isPlaying ? (
@@ -32,11 +29,7 @@ const NowPlaying = ({
   );
 
   return (
-    <div
-      className={`${joinClasses(
-        className,
-      )} flex flex-row p-3 items-center`}
-    >
+    <div className={`${joinClasses(className)} flex flex-row p-3 items-center`}>
       {includeImage && (
         <Image
           src={"/spotify.png"}
@@ -46,8 +39,9 @@ const NowPlaying = ({
           alt={"Spotify logo"}
           style={{
             maxWidth: "100%",
-            height: "auto"
-          }} />
+            height: "auto",
+          }}
+        />
       )}
       {nowPlayingElement}
     </div>

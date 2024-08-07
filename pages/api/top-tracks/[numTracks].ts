@@ -1,8 +1,8 @@
-import { getTopTracks } from "../../../lib/spotify";
 import { NextApiRequest, NextApiResponse } from "next";
+import { getTopTracks } from "../../../lib/spotify";
 
 function stringify(s: string | string[]) {
-  return typeof s === 'string' ? s : s.join(",");
+  return typeof s === "string" ? s : s.join(",");
 }
 
 const topTracks = async (req: NextApiRequest, res: NextApiResponse) => {

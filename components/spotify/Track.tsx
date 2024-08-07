@@ -10,30 +10,23 @@ type trackProps = BaseComponentProps & {
   id: string;
 };
 
-const Track: React.FC<trackProps> = ({
-  artist,
-  album,
-  songUrl,
-  title,
-  className,
-}) => {
+const Track: React.FC<trackProps> = ({ artist, album, songUrl, title, className }) => {
   return (
-    <li
-      className={joinClasses(className, 'flex border-2 m-2 p-2 rounded')}
-    >
+    <li className={joinClasses(className, "flex border-2 m-2 p-2 rounded")}>
       <div className={"flex flex-col w-full sm:w-3/4"}>
         <div className={"font-bold"}>
-          <a href={songUrl} target="_blank" rel="noopener noreferrer" className="text-highlight underline">
+          <a
+            href={songUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-highlight underline"
+          >
             {title}
           </a>
         </div>
         <div className={"italic"}>{artist}</div>
       </div>
-      <div
-        className={
-          "hidden md:flex flex-col items-end font-bold italic w-1/4 text-right"
-        }
-      >
+      <div className={"hidden md:flex flex-col items-end font-bold italic w-1/4 text-right"}>
         {album}
       </div>
     </li>

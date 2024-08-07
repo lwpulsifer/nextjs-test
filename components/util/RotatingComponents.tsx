@@ -1,5 +1,5 @@
+import { useCallback, useState } from "react";
 import { useInterval } from "../../hooks/useInterval";
-import { useState, useCallback } from "react";
 import { BaseComponentProps } from "../../types/BaseComponent";
 import { joinClasses } from "../../util/ClassNames";
 
@@ -23,22 +23,16 @@ const RotatingComponents: React.FC<RotatingComponentsProps> = ({
   const [currentChild, setCurrentChild] = useState(0);
 
   const incrementCurrentChild = () =>
-    setCurrentChild(
-      (currentChild) => (currentChild + 1) % nonNullChildren.length,
-    );
+    setCurrentChild((currentChild) => (currentChild + 1) % nonNullChildren.length);
 
   useInterval(incrementCurrentChild, autoMove ? rotationInterval : null);
 
   return (
-    <div 
-    className={joinClasses(
-      joinClasses(className),
-      "flex justify-center items-center",
-      {
+    <div
+      className={joinClasses(joinClasses(className), "flex justify-center items-center", {
         "cursor-pointer": nonNullChildren.length > 1,
-      },
-    )} 
-    onClick={incrementCurrentChild}
+      })}
+      onClick={incrementCurrentChild}
     >
       {nonNullChildren[currentChild]}
     </div>

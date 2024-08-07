@@ -1,5 +1,5 @@
-import MyLink from "./util/MyLink";
 import { joinClasses } from "../util/ClassNames";
+import MyLink from "./util/MyLink";
 
 const AboutLinks = () => {
   const links = [
@@ -17,27 +17,19 @@ const AboutLinks = () => {
     },
     {
       title: "LinkedIn",
-      address:
-        "https://www.linkedin.com/in/liam-pulsifer",
+      address: "https://www.linkedin.com/in/liam-pulsifer",
     },
   ];
 
   return (
-    <aside
-      className={
-        "flex flex-row flex-wrap"
-      }
-    >
+    <aside className={"flex flex-row flex-wrap"}>
       {links.map((link, i) => (
         <MyLink
           key={link.title}
           header={true}
-          className={joinClasses(
-            "flex justify-center items-center font-thin text-md px-2",
-            {
-              'border-r-2 border-accentBackground': i !== links.length - 1,
-            }
-          )}
+          className={joinClasses("flex justify-center items-center font-thin text-md px-2", {
+            "border-r-2 border-accentBackground": i !== links.length - 1,
+          })}
           {...link}
         />
       ))}

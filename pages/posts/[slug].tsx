@@ -1,15 +1,15 @@
-import BasePage from "../../components/BasePage";
-import { getAllPosts, getPostBySlug } from "../../lib/markdown/api";
-import markdownToHtml from "../../lib/markdown/markdownToHtml";
-import BaseCard from "../../components/BaseCard";
 import Head from "next/head";
-import { Post } from "../../lib/markdown/api";
+import BaseCard from "../../components/BaseCard";
+import BasePage from "../../components/BasePage";
 import PostBody from "../../components/posts/PostBody";
-import PostTitle from "../../components/posts/PostTitle";
 import PostFooter from "../../components/posts/PostFooter";
+import PostTitle from "../../components/posts/PostTitle";
+import { getAllPosts, getPostBySlug } from "../../lib/markdown/api";
+import { Post } from "../../lib/markdown/api";
+import markdownToHtml from "../../lib/markdown/markdownToHtml";
 
 // @ts-ignore: Resolution from node modules, should be able to fix this in ts-config but not sure how.
-import prismTheme from 'prismjs/themes/prism-okaidia.css';
+import prismTheme from "prismjs/themes/prism-okaidia.css";
 
 type BlogPostProps = {
   post: Post;
@@ -24,11 +24,9 @@ function BlogPost({ post }: BlogPostProps) {
   return (
     <BasePage>
       <Head>
-        <title>
-          {post ? `${postData.title} — ${postData.author}` : "Blog Post"}
-        </title>
-        <style jsx global>  
-          {prismTheme} 
+        <title>{post ? `${postData.title} — ${postData.author}` : "Blog Post"}</title>
+        <style jsx global>
+          {prismTheme}
         </style>
       </Head>
       <BaseCard className={"font-serif font-thin"}>

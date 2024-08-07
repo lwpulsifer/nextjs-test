@@ -1,7 +1,7 @@
+import Image from "next/image";
 import React from "react";
 import BaseCard from "../components/BaseCard";
 import BasePage from "../components/BasePage";
-import Image from "next/image";
 
 const Home = () => {
   return (
@@ -10,11 +10,7 @@ const Home = () => {
         <BaseCard>
           <div className="flex flex-col md:flex-row items-center justify-center p-3">
             <div className="flex gap-1 flex-col w-full md:w-3/4 items-center">
-              <h1
-                className={
-                  "text-4xl font-medium text-highlightHeader text-center"
-                }
-              >
+              <h1 className={"text-4xl font-medium text-highlightHeader text-center"}>
                 Hi, I&apos;m Liam Pulsifer
               </h1>
               <div className={"w-full md:w-11/12 rounded-xl text-center p-3"}>
@@ -26,17 +22,13 @@ const Home = () => {
                   athlete
                 </a>
                 . When I&apos;m not working at my day job at{" "}
-                <a
-                  className={"text-link hover:underline"}
-                  href={"https://www.ixl.com/"}
-                >
+                <a className={"text-link hover:underline"} href={"https://www.ixl.com/"}>
                   IXL Learning
                 </a>
-                , you can often find me reading, playing tennis, or riding my bike
-                around the San Francisco bay area. I&apos;m always looking for
-                new connections, so don&apos;t be shy about getting in touch,
-                and please feel free to peruse the various links on this site to
-                get a sense of who I am and what I&apos;m doing.
+                , you can often find me reading, playing tennis, or riding my bike around the San
+                Francisco bay area. I&apos;m always looking for new connections, so don&apos;t be
+                shy about getting in touch, and please feel free to peruse the various links on this
+                site to get a sense of who I am and what I&apos;m doing.
               </div>
             </div>
             <div className="relative rounded-full overflow-hidden flex justify-center items-center my-2">
@@ -47,8 +39,9 @@ const Home = () => {
                 alt={"Me"}
                 style={{
                   maxWidth: "100%",
-                  height: "auto"
-                }} />
+                  height: "auto",
+                }}
+              />
             </div>
           </div>
         </BaseCard>

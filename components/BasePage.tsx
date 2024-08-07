@@ -1,10 +1,10 @@
-import React from "react";
 import Head from "next/head";
-import CommonHeader from "./CommonHeader";
-import CommonFooter from "./CommonFooter";
-import ThemeInfo from "./ThemeInfo";
-import { joinClasses } from "../util/ClassNames";
+import React from "react";
 import { BaseComponentProps } from "../types/BaseComponent";
+import { joinClasses } from "../util/ClassNames";
+import CommonFooter from "./CommonFooter";
+import CommonHeader from "./CommonHeader";
+import ThemeInfo from "./ThemeInfo";
 
 type BasePageProps = BaseComponentProps & {
   isHomePage?: boolean;
@@ -32,13 +32,9 @@ const BasePage = ({
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       <div className="h-full w-full relative p-2 md:p-4 lg:p-6 flex flex-col items-center gap-2">
-        {includeHeaderAndFooter &&
-          <CommonHeader />
-        }
+        {includeHeaderAndFooter && <CommonHeader />}
         {children}
-        {includeHeaderAndFooter &&
-          <CommonFooter isHomePage={isHomePage} />
-        }
+        {includeHeaderAndFooter && <CommonFooter isHomePage={isHomePage} />}
       </div>
     </div>
   );

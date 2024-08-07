@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function BackToPostsLink() {
   return (
@@ -12,11 +12,10 @@ export default function BackToPostsLink() {
           alt="Back to posts"
           style={{
             maxWidth: "100%",
-            height: "auto"
-          }} />
-        <span className="sm:block hidden">
-          Back to posts
-        </span>
+            height: "auto",
+          }}
+        />
+        <span className="sm:block hidden">Back to posts</span>
       </span>
     </Link>
   );

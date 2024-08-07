@@ -1,5 +1,5 @@
-import React from "react";
 import Link from "next/link";
+import React from "react";
 import { BaseComponentProps } from "../../types/BaseComponent";
 import { joinClasses } from "../../util/ClassNames";
 
@@ -9,12 +9,7 @@ type MyLinkProps = BaseComponentProps & {
   header?: boolean;
 };
 
-const MyLink: React.FC<MyLinkProps> = ({
-  address,
-  title,
-  header = false,
-  className = "",
-}) => {
+const MyLink: React.FC<MyLinkProps> = ({ address, title, header = false, className = "" }) => {
   const fullClassName = joinClasses(
     joinClasses(className),
     header ? "text-header font-bold" : "text-link",

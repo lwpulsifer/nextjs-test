@@ -1,9 +1,9 @@
+import { sorted } from "../../util/ArrayUtils";
+import BaseCard from "../BaseCard";
+import ExpandableList from "../util/ExpandableList";
+import MyLink from "../util/MyLink";
 import TimelineCard from "./TimelineCard";
 import YearCard from "./YearCard";
-import { sorted } from "../../util/ArrayUtils";
-import MyLink from "../util/MyLink";
-import ExpandableList from "../util/ExpandableList";
-import BaseCard from "../BaseCard";
 
 export interface TimelineEvent {
   beginning: Date;
@@ -51,16 +51,9 @@ const events: TimelineEvent[] = [
     description: (
       <div>
         I create video tutorials on the Python programming language for{" "}
-        <MyLink
-          address={"https://www.realpython.com"}
-          title={"realpython.com"}
-        />
-        . My videos have been watched by thousands of Python learners and
-        receive consistently glowing reviews (watch{" "}
-        <MyLink
-          address={"https://www.realpython.com/team/lwpulsifer"}
-          title={"here"}
-        />
+        <MyLink address={"https://www.realpython.com"} title={"realpython.com"} />. My videos have
+        been watched by thousands of Python learners and receive consistently glowing reviews (watch{" "}
+        <MyLink address={"https://www.realpython.com/team/lwpulsifer"} title={"here"} />
         ).
       </div>
     ),
@@ -104,38 +97,22 @@ export default function Timeline() {
   events.forEach((event, i) => {
     if (event.beginning.getFullYear() !== currentYear) {
       currentYear = event.beginning.getFullYear();
-      timelineEvents[currentYear] = [
-        <YearCard year={currentYear} key={currentYear} />,
-      ];
+      timelineEvents[currentYear] = [<YearCard year={currentYear} key={currentYear} />];
     }
 
     const lastOfYear = events[i + 1]?.beginning.getFullYear() !== currentYear;
     timelineEvents[currentYear].push(
-      <TimelineCard
-        {...event}
-        includeTrailingLine={!lastOfYear}
-        key={event.title}
-      />,
+      <TimelineCard {...event} includeTrailingLine={!lastOfYear} key={event.title} />,
     );
   });
 
-  const sortedYears = sorted(Object.keys(timelineEvents), (a, b) =>
-    b.localeCompare(a),
-  );
-  const displayEvents = sortedYears.map((year) => timelineEvents[year]).flat();
+  const sortedYears = sorted(Object.keys(timelineEvents), (a, b) => b.localeCompare(a));
+  const displayEvents = sortedYears.flatMap((year) => timelineEvents[year]);
 
   return (
-    <BaseCard
-      className={
-        "flex flex-col p-3 items-center justify-center rounded-2xl"
-      }
-    >
+    <BaseCard className={"flex flex-col p-3 items-center justify-center rounded-2xl"}>
       <h1 className="text-xl font-bold">Personal timeline</h1>
-      <ExpandableList
-        items={displayEvents}
-        initialItemsToShow={5}
-        itemsIncrement={3}
-      />
+      <ExpandableList items={displayEvents} initialItemsToShow={5} itemsIncrement={3} />
     </BaseCard>
   );
 }

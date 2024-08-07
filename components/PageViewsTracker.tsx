@@ -1,14 +1,13 @@
-import Fetcher from "../lib/fetch/fetcher";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import useSWR from "swr";
-import { usePathname } from 'next/navigation'
+import Fetcher from "../lib/fetch/fetcher";
 
 /**
  * Creates a key from a site path.
  * Example: /home => "home", /home/about => "home|about", / => ""
  */
-const createSitePathKey = (pathName: string) =>
-  encodeURI(pathName).split("/").slice(1).join("|");
+const createSitePathKey = (pathName: string) => encodeURI(pathName).split("/").slice(1).join("|");
 
 export default function PageViewsTracker() {
   const pathName = usePathname();
@@ -18,14 +17,17 @@ export default function PageViewsTracker() {
     Fetcher(`/api/log-page-view/${createSitePathKey(pathName)}`);
   }, [pathName]);
 
-  const { data, error, isLoading } = useSWR(`/api/page-views/${createSitePathKey(pathName)}`, Fetcher);
+  const { data, error, isLoading } = useSWR(
+    `/api/page-views/${createSitePathKey(pathName)}`,
+    Fetcher,
+  );
 
   const numPageViews = data?.numPageViews;
 
   let displayContent;
   if (isLoading) {
     displayContent = "...";
-  } else if (!data || error)  {
+  } else if (!data || error) {
     displayContent = "";
   } else {
     displayContent = `${numPageViews} views`;

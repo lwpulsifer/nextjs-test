@@ -1,9 +1,9 @@
+import BaseCard from "../../components/BaseCard";
 import BasePage from "../../components/BasePage";
+import PostsList from "../../components/posts/PostsList";
 import { getAllPosts } from "../../lib/markdown/api";
 import { Post } from "../../lib/markdown/api";
 import markdownToHtml from "../../lib/markdown/markdownToHtml";
-import BaseCard from "../../components/BaseCard";
-import PostsList from "../../components/posts/PostsList";
 
 export default function PostsPage({ posts }: { posts: Post[] }) {
   return (

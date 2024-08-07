@@ -1,20 +1,17 @@
-import { Post } from "../../lib/markdown/api";
 import Link from "next/link";
 import useHoverState from "../../hooks/useHoverState";
+import { Post } from "../../lib/markdown/api";
 import { joinClasses } from "../../util/ClassNames";
 
 /**
  * TODO: Investigate using Tailwind's group property to simplify hover states/maybe remove hook usage.
  */
 export default function MinimalPost({ post }: { post: Post }) {
-  const formattedDate = new Date(Date.parse(post.data.date)).toLocaleString(
-    "en-US",
-    {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    },
-  );
+  const formattedDate = new Date(Date.parse(post.data.date)).toLocaleString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
 
   const { isHovered, eventListeners } = useHoverState();
 
@@ -27,8 +24,8 @@ export default function MinimalPost({ post }: { post: Post }) {
         <section className="">
           <div
             className={joinClasses(
-              'flex justify-between items-center sm:flex-row flex-col',
-              isHovered ? 'underline' : 'no-underline'
+              "flex justify-between items-center sm:flex-row flex-col",
+              isHovered ? "underline" : "no-underline",
             )}
           >
             <div className="flex flex-col items-center sm:items-start">

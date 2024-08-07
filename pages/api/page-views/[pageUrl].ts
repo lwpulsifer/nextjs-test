@@ -1,11 +1,11 @@
-import { supabase } from "../../../lib/db/supabase";
 import { NextApiRequest, NextApiResponse } from "next";
+import { supabase } from "../../../lib/db/supabase";
 
 export type PageView = {
-    id: number;
-    creation_date: string;
-    user_ip: string;
-    url: string;
+  id: number;
+  creation_date: string;
+  user_ip: string;
+  url: string;
 };
 export type PageViewError = { error: string };
 export type PageViewsResponse = PageViewError | { numPageViews: number };
@@ -13,10 +13,7 @@ export type PageViewsResponse = PageViewError | { numPageViews: number };
 /**
  * Returns the list of page views for the given page.
  */
-const pageViews = async (
-  req: NextApiRequest,
-  res: NextApiResponse<PageViewsResponse>,
-) => {
+const pageViews = async (req: NextApiRequest, res: NextApiResponse<PageViewsResponse>) => {
   const pageUrl = req.query.pageUrl ? req.query.pageUrl : "/";
   if (typeof pageUrl !== "string") {
     return res.status(500).json({

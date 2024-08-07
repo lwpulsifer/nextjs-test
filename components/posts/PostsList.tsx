@@ -15,27 +15,17 @@ export default function PostsList({ posts }: { posts: Post[] }) {
 
   const filteredPosts = posts
     .filter((post) => post.data.display)
-    .filter(
-      (post) => postFilter === "" || hasTagWithPrefix(post, postFilter),
-    );
+    .filter((post) => postFilter === "" || hasTagWithPrefix(post, postFilter));
 
   const listDisplay =
     filteredPosts.length > 0 ? (
-      <ol
-        className={
-          "font-thin font-serif flex flex-col w-full justify-center items-center my-2"
-        }
-      >
+      <ol className={"font-thin font-serif flex flex-col w-full justify-center items-center my-2"}>
         {filteredPosts.map((post) => (
           <MinimalPost key={post.data.slug} post={post} />
         ))}
       </ol>
     ) : (
-      <div
-        className={
-          "font-thin font-serif flex flex-col justify-center items-center my-2 h-24"
-        }
-      >
+      <div className={"font-thin font-serif flex flex-col justify-center items-center my-2 h-24"}>
         {`No posts`}
       </div>
     );
@@ -50,8 +40,8 @@ export default function PostsList({ posts }: { posts: Post[] }) {
           </label>
           <input
             type={"search"}
-            id={'tag-search'}
-            list={'tag-options'}
+            id={"tag-search"}
+            list={"tag-options"}
             value={postFilter}
             onChange={(e) => setPostFilter(e.target.value)}
             className={
@@ -59,12 +49,12 @@ export default function PostsList({ posts }: { posts: Post[] }) {
             }
             placeholder="Filter posts by tag"
           />
-          <datalist id={'tag-options'}>
-            {
-              posts.flatMap(post => post.data.tags.split(",")).map(tag => 
+          <datalist id={"tag-options"}>
+            {posts
+              .flatMap((post) => post.data.tags.split(","))
+              .map((tag) => (
                 <option key={tag} value={tag} />
-              )
-            }
+              ))}
           </datalist>
         </span>
       </div>
